@@ -1,0 +1,38 @@
+{
+    "title": "My orders",
+    "filterAll": "All",
+    "statuses": {
+        "PENDING": "Pending",
+        "CONFIRMED": "Confirmed",
+        "PROCESSING": "Processing",
+        "DELIVERED": "Delivered",
+        "CANCELLED": "Cancelled",
+        "RETURNED": "Returned"
+    },
+    "orderNumber": "Order number",
+    "qty": "Qty",
+    "offer": "Offer",
+    "payment": "Payment",
+    "paymentMethods": {
+        "CASH": "Cash on delivery",
+        "VISA": "Credit card",
+        "VODAFONE_CASH": "Vodafone Cash"
+    },
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "discount": "Discount",
+    "total": "Total",
+    "cancel": "Cancel order",
+    "cancelConfirm": "Are you sure you want to cancel this order?",
+    "cancelYes": "Yes, cancel",
+    "cancelNo": "Keep it",
+    "cancelling": "Cancelling...",
+    "cancelFailed": "Couldn't cancel the order. Only pending orders can be cancelled.",
+    "emptyTitle": "No orders yet",
+    "emptyDesc": "Your orders will show up here after your first purchase.",
+    "startShopping": "Start shopping",
+    "loadFailed": "Couldn't load your orders.",
+    "retry": "Try again",
+    "showMore": "Show more",
+    "loading": "Loading..."
+}

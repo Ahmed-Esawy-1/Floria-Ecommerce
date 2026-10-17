@@ -1,0 +1,37 @@
+{
+   "title": "Product Colors",
+   "subtitle": "Organize product colors and manage their images.",
+   "add": "Add new color",
+   "edit": "Edit Color",
+   "filter": "Search by name or hex...",
+   "count_one": "{{count}} color",
+   "count_other": "{{count}} colors",
+   "table": {
+      "color": "Color",
+      "nameEn": "English Name",
+      "nameAr": "Arabic Name",
+      "hex": "Hex Code",
+      "control": "Control"
+   },
+
+   "empty": "No colors found.",
+   "form": {
+      "colorName": "Color Name",
+      "subtitle": "Manage and customize product color options.",
+      "update": "Update Color",
+      "save": "Save Color"
+   },
+   "validation": {
+      "nameEnRequired": "English name is required.",
+      "nameArRequired": "Arabic name is required.",
+      "invalidHex": "Please enter a valid hex color (e.g. #FF0000)."
+   },
+   "toast": {
+      "createSuccess": "Color created successfully.",
+      "updateSuccess": "Color updated successfully.",
+      "deleteSuccess": "Color \"{{name}}\" deleted successfully.",
+      "createError": "Failed to create color.",
+      "updateError": "Failed to update color.",
+      "deleteError": "Failed to delete color."
+   }
+}

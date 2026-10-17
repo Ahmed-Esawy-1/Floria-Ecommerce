@@ -1,0 +1,92 @@
+{
+    "title": "سلة المحذوفات",
+    "breadcrumb": "سلة المحذوفات",
+
+    "types": {
+        "product": {
+            "title": "سلة محذوفات المنتجات",
+            "subtitle": "استعادة المنتجات المحذوفة أو حذفها نهائيًا.",
+            "backLabel": "المنتجات"
+        },
+        "category": {
+            "title": "سلة محذوفات التصنيفات",
+            "subtitle": "استعادة التصنيفات المحذوفة أو حذفها نهائيًا.",
+            "backLabel": "التصنيفات"
+        },
+        "occasion": {
+            "title": "سلة محذوفات المناسبات",
+            "subtitle": "استعادة المناسبات المحذوفة أو حذفها نهائيًا.",
+            "backLabel": "المناسبات"
+        },
+        "color": {
+            "title": "سلة محذوفات الألوان",
+            "subtitle": "استعادة الألوان المحذوفة أو حذفها نهائيًا.",
+            "backLabel": "الألوان"
+        },
+        "section": {
+            "title": "سلة محذوفات الأقسام",
+            "subtitle": "استعادة الأقسام المحذوفة أو حذفها نهائيًا.",
+            "backLabel": "الأقسام"
+        },
+        "employee": {
+            "title": "سلة محذوفات الموظفين",
+            "subtitle": "استعادة الموظفين المحذوفين أو حذفهم نهائيًا.",
+            "backLabel": "الموظفون"
+        },
+        "customer": {
+            "title": "سلة محذوفات العملاء",
+            "subtitle": "استعادة العملاء المحذوفين أو حذفهم نهائيًا.",
+            "backLabel": "العملاء"
+        }
+    },
+
+    "buttons": {
+        "select": "تحديد",
+        "cancel": "إلغاء",
+        "restoreSelected": "استعادة المحدد",
+        "deletePermanently": "حذف نهائيًا"
+    },
+
+    "stats": {
+        "pendingDeletion": "بانتظار الحذف النهائي"
+    },
+
+    "bulk": {
+        "selected_zero": "لا توجد عناصر محددة",
+        "selected_one": "عنصر واحد محدد",
+        "selected_two": "عنصران محددان",
+        "selected_few": "{{count}} عناصر محددة",
+        "selected_many": "{{count}} عنصرًا محددًا",
+        "selected_other": "{{count}} عنصر محدد"
+    },
+
+    "table": {
+        "item": "العنصر",
+        "deletedAt": "تاريخ الحذف",
+        "actions": "الإجراءات",
+        "empty": "سلة المحذوفات فارغة",
+        "recently": "منذ قليل"
+    },
+
+    "toast": {
+        "loadFailed": "فشل في تحميل العناصر المحذوفة.",
+        "restoreSuccess": "تمت الاستعادة بنجاح.",
+        "restoreFailed": "فشلت عملية الاستعادة.",
+        "bulkRestoreSuccess": "تمت استعادة العناصر المحددة بنجاح.",
+        "bulkRestoreFailed": "فشلت استعادة العناصر المحددة.",
+        "deleteSuccess": "تم الحذف نهائيًا.",
+        "deleteFailed": "فشل الحذف.",
+        "bulkDeleteSuccess": "تم حذف العناصر المحددة نهائيًا.",
+        "bulkDeleteFailed": "فشل حذف العناصر المحددة."
+    },
+
+    "modal": {
+        "item": "هذا العنصر",
+        "selected_zero": "لا توجد عناصر محددة",
+        "selected_one": "عنصر واحد محدد",
+        "selected_two": "عنصران محددان",
+        "selected_few": "{{count}} عناصر محددة",
+        "selected_many": "{{count}} عنصرًا محددًا",
+        "selected_other": "{{count}} عنصر محدد"
+    }
+}

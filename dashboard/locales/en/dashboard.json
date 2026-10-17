@@ -1,35 +1,40 @@
 {
-   "title": "Dashboard Overview",
-   "subTitle": "Monitor key performance indicators and operational metrics.",
-   "dateRange": "Last 30 Days",
-   "exportReport": "Export Report",
+    "title": "Dashboard Overview",
+    "subtitle": "Monitor key performance indicators and operational metrics.",
+    "dateRange": "Last 30 Days",
+    "exportReport": "Export Report",
 
-   "orders": {
-      "title": "Recent Orders",
-      "subTitle": "Latest customer orders",
-      "viewAll": "View All Orders",
-      "order": "Order",
-      "customer": "Customer",
-      "currency": "EGP",
-      "status": {
-         "pending": "Pending",
-         "processing": "Processing",
-         "completed": "Completed",
-         "cancelled": "Cancelled"
-      }
-   },
+    "cards": {
+        "totalProducts": "Total Products",
+        "totalCategories": "Total Categories",
+        "totalOccasions": "Total Occasions",
+        "totalOrders": "Total Orders",
+        "pendingOrders": "Pending Orders",
+        "deliveredOrders": "Delivered Orders",
+        "monthlyRevenue": "Monthly Revenue",
+        "yearlyRevenue": "Yearly Revenue"
+    },
 
-   "cards": {
-      "products": "Total Products",
-      "orders": "Total Orders",
-      "categories": "Total Categories",
-      "occasions": "Total Occasions"
-   },
+    "topProducts": {
+        "title": "Top Products",
+        "subtitle": "Best-selling products",
+        "orderCount": "Order Count",
+        "ordersTooltip_one": "{{count}} order",
+        "ordersTooltip_other": "{{count}} orders",
+        "empty": "No order data yet"
+    },
 
-   "topProducts": {
-      "title": "Top Products",
-      "subTitle": "Best-selling products",
-      "orderCount": "Order Count",
-      "ordersTooltip": "{{count}} orders"
-   }
+    "orders": {
+        "title": "Recent Orders",
+        "subtitle": "Latest customer orders",
+        "viewAll": "View All Orders",
+        "order": "Order",
+        "customer": "Customer",
+        "currency": "EGP",
+        "status": {
+            "pending": "Pending",
+            "delivered": "Delivered",
+            "cancelled": "Cancelled"
+        }
+    }
 }

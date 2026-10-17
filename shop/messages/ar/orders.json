@@ -1,0 +1,38 @@
+{
+    "title": "طلباتي",
+    "filterAll": "الكل",
+    "statuses": {
+        "PENDING": "قيد الانتظار",
+        "CONFIRMED": "تم التأكيد",
+        "PROCESSING": "قيد التجهيز",
+        "DELIVERED": "تم التوصيل",
+        "CANCELLED": "ملغي",
+        "RETURNED": "مرتجع"
+    },
+    "orderNumber": "رقم الطلب",
+    "qty": "الكمية",
+    "offer": "عرض",
+    "payment": "طريقة الدفع",
+    "paymentMethods": {
+        "CASH": "الدفع عند الاستلام",
+        "VISA": "بطاقة ائتمان",
+        "VODAFONE_CASH": "فودافون كاش"
+    },
+    "subtotal": "المجموع الفرعي",
+    "delivery": "التوصيل",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "cancel": "إلغاء الطلب",
+    "cancelConfirm": "هل أنت متأكد من إلغاء الطلب؟",
+    "cancelYes": "نعم، إلغاء",
+    "cancelNo": "تراجع",
+    "cancelling": "جاري الإلغاء...",
+    "cancelFailed": "تعذر إلغاء الطلب. يمكن إلغاء الطلبات قيد الانتظار فقط.",
+    "emptyTitle": "لا توجد طلبات بعد",
+    "emptyDesc": "ستظهر طلباتك هنا بعد إتمام أول عملية شراء.",
+    "startShopping": "ابدأ التسوق",
+    "loadFailed": "تعذر تحميل طلباتك.",
+    "retry": "إعادة المحاولة",
+    "showMore": "عرض المزيد",
+    "loading": "جارٍ التحميل..."
+}

@@ -1,0 +1,24 @@
+{
+    "occasions": "المناسبات",
+    "categories": "التصنيفات",
+    "bestSellers": "أفضل المبيعات",
+    "shop": "المتجر",
+    "searchPlaceholder": "ابحث...",
+
+    "userMenu": {
+        "login": "تسجيل الدخول",
+        "signup": "إنشاء حساب",
+        "profile": "عرض الملف الشخصي",
+        "editProfile": "تحديث الملف الشخصي",
+        "changePassword": "تغيير كلمة المرور",
+        "trackOrder": "تتبع الطلب",
+        "logout": "تسجيل الخروج",
+        "watchlist": "قائمة المفضلة"
+    },
+
+    "search": {
+        "noResults": "لم نجد منتجات مطابقة",
+        "error": "تعذر البحث الآن، حاول مرة أخرى.",
+        "currency": "ج.م"
+    }
+}

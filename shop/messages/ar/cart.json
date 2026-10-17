@@ -1,0 +1,15 @@
+{
+    "title": "عربة التسوق",
+    "subtitle": "راجع اختيارك الفاخر من الزهور قبل إتمام الشراء.",
+    "emptyTitle": "عربتك فارغة",
+    "emptyDesc": "أضف بعض العناصر للبدء!",
+    "orderSummary": "ملخص الطلب",
+    "subtotal": "الإجمالي الفرعي",
+    "delivery": "التوصيل",
+    "calculatedAtCheckout": "يتم احتسابه عند إتمام الطلب",
+    "checkout": "المتابعة للدفع",
+    "securePayment": "دفع آمن ومشفر",
+    "removeItem": "إزالة المنتج",
+    "decreaseQuantity": "تقليل الكمية",
+    "increaseQuantity": "زيادة الكمية"
+}

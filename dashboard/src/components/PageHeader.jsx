@@ -1,8 +1,8 @@
 const PageHeader = ({ title, subtitle, children }) => {
    return (
-      <section className="flex justify-between items-end gap-4 mb-7">
+      <section className="flex flex-wrap justify-between items-end gap-4 mb-7">
          <div>
-            <h2 className="page-title">{title}</h2>
+            <h2 className="page-title mb-5">{title}</h2>
             <p className="page-subtitle">{subtitle}</p>
          </div>
 

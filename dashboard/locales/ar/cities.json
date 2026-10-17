@@ -1,0 +1,44 @@
+{
+    "title": "المدن",
+    "subtitle": "إدارة وتنظيم مدن التسليم الخاصة بك",
+    "add": "إضافة مدينة",
+    "edit": "تعديل المدينة",
+    "filter": "البحث حسب الاسم...",
+    "empty": "لم يتم العثور على مدن",
+    "count_one": "{{count}} مدينة",
+    "count_other": "{{count}} مدينة",
+    "table": {
+        "city": "المدينة",
+        "nameEn": "الاسم (إنجليزي)",
+        "nameAr": "الاسم (عربي)",
+        "deliveryPrice": "سعر التسليم",
+        "available": "متاح",
+        "control": "الإجراءات"
+    },
+    "available": {
+        "yes": "متاح",
+        "no": "غير متاح"
+    },
+    "form": {
+        "subtitle": "إنشاء وإدارة معلومات توصيل المدينة",
+        "cityName": "اسم المدينة",
+        "deliveryPrice": "سعر التسليم (جنيه مصري)",
+        "available": "المدينة متاحة للتسليم",
+        "save": "حفظ المدينة",
+        "update": "تحديث المدينة"
+    },
+    "validation": {
+        "nameEnRequired": "الاسم الإنجليزي مطلوب",
+        "nameArRequired": "الاسم العربي مطلوب",
+        "priceRequired": "سعر التسليم يجب أن يكون أكبر من 0"
+    },
+    "toast": {
+        "createSuccess": "تم إنشاء المدينة بنجاح",
+        "createError": "فشل في إنشاء المدينة",
+        "updateSuccess": "تم تحديث المدينة بنجاح",
+        "updateError": "فشل في تحديث المدينة",
+        "deleteSuccess": "تم حذف المدينة '{{name}}' بنجاح",
+        "deleteError": "فشل في حذف المدينة",
+        "fetchError": "فشل في جلب المدن"
+    }
+}

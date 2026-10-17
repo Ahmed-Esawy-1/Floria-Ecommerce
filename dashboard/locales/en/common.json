@@ -1,17 +1,59 @@
 {
-   "sidebar": {
-      "title": "Flow Flowers",
-      "subTitle": "Flow Dashboard",
-      "home": "Home",
-      "orders": "Orders",
-      "products": "Products",
-      "occasions": "Occasions",
-      "categories": "Categories",
-      "colors": "Colors",
-      "sections": "Sections",
-      "users": "Users"
-   },
-   
-   "products": "Products",
-   "orders": "Orders"
+    "trash": "Trash",
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "saving": "Saving...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "actions": "Actions",
+
+    "products": "Products",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "category": "Category",
+    "employees": "Employees",
+
+    "sections": "Sections",
+    "occasion": "Occasion",
+    "pound": "EGP",
+
+    "name": "Name",
+    "english": "English",
+    "arabic": "Arabic",
+    "image": "Image",
+    "current": "Current",
+    "new": "New",
+
+    "select": "Select",
+    "selectedCount": "{{count}} selected",
+    "deleteSelected": "Delete Selected",
+
+    "collection": {
+        "createSubtitle": "Fill in the {{label}} details below.",
+        "editSubtitle": "Edit {{label}} details and image.",
+        "categoryLabel": "Category",
+        "occasionLabel": "Occasion",
+        "nameEnRequired": "{{label}} name (EN) is required",
+        "nameArRequired": "{{label}} name (Ar) is required",
+        "nameExists": "{{label}} name already exists"
+    },
+
+    "deleteModal": {
+        "moveTitle": "Move to Trash",
+        "deleteTitle": "Permanently Delete",
+        "moveMessage": "Are you sure you want to move {{name}}?",
+        "deleteMessage": "Are you sure you want to permanently delete {{name}}?",
+        "restoreHint": "You can restore {{item}} from Trash anytime.",
+        "deleteHint": "This action cannot be undone and all data will be lost forever.",
+        "move": "Move to Trash",
+        "delete": "Delete Forever",
+        "them": "them",
+        "it": "it"
+    },
+
+    "errors": {
+        "invalidCredentials": "Invalid email or password.",
+        "loginFailed": "Something went wrong. Please try again."
+    }
 }

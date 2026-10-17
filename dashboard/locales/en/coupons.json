@@ -1,0 +1,59 @@
+{
+    "title": "Coupons",
+    "subtitle": "Manage discount codes for your customers",
+    "add": "Add coupon",
+    "edit": "Edit coupon",
+    "filter": "Filter by code...",
+    "empty": "No coupons found",
+    "count_one": "{{count}} coupon",
+    "count_other": "{{count}} coupons",
+    "table": {
+        "code": "Code",
+        "usage": "Usage",
+        "discount": "Discount",
+        "minOrder": "Min. order",
+        "expiry": "Ends",
+        "status": "Status",
+        "control": "Actions"
+    },
+    "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "expired": "Expired"
+    },
+    "form": {
+        "subtitle": "Set the code, discount and conditions",
+        "code": "Coupon code",
+        "generate": "Generate",
+        "discount": "Discount",
+        "minOrder": "Minimum order",
+        "usageLimit": "Usage limit",
+        "active": "Coupon is active",
+        "save": "Save coupon",
+        "update": "Update coupon",
+        "maxDiscount": "Maximum discount",
+        "startAt": "Starts at",
+        "endAt": "Ends at"
+    },
+    "validation": {
+        "codeRequired": "Coupon code is required",
+        "valueRequired": "Enter a discount greater than 0",
+        "percentageInvalid": "Enter a percentage between 1 and 100",
+        "usageLimitInvalid": "Usage limit must be at least {{min}}",
+        "minOrderRequired": "Enter a minimum order greater than 0",
+        "maxDiscountRequired": "Enter a maximum discount greater than 0",
+        "startRequired": "Start date is required",
+        "endRequired": "End date is required",
+        "endBeforeStart": "End must be after the start"
+    },
+    "toast": {
+        "fetchError": "Couldn't load coupons",
+        "createSuccess": "Coupon created",
+        "createError": "Couldn't create the coupon",
+        "updateSuccess": "Coupon updated",
+        "updateError": "Couldn't update the coupon",
+        "deleteSuccess": "Coupon {{name}} deleted",
+        "deleteError": "Couldn't delete the coupon",
+        "generateError": "Couldn't generate a code"
+    }
+}

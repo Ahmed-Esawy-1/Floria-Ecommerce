@@ -1,26 +1,72 @@
 {
-   "title": "Orders",
-   "subTitle": "Manage and track your customer purchase lifecycle.",
-   "totalOrders": "Total Orders",
-   "status": {
-      "all": "All",
-      "pending": "Pending",
-      "shipped": "Shipped",
-      "delivered": "Delivered",
-      "completed": "Completed",
-      "cancelled": "Cancelled"
-   },
-
-   "revenue": "Revenue",
-   "table": {
-      "filter": "Filter by status",
-      "id": "Order Id",
-      "customer": "Customer",
-      "date": "Date",
-      "amount": "Amount",
-      "status": "Status",
-      "actions": "Actions",
-      "showingResults": "Showing {{from}} to {{to}} of {{total}} results",
-      "pound": "EGP"
-   }
+    "title": "Orders",
+    "subtitle": "Manage and track your customer purchase lifecycle.",
+    "totalOrders": "Total Orders",
+    "table": {
+        "filter": "All statuses",
+        "showingResults": "Showing {{from}} - {{to}} of {{total}}",
+        "pound": "EGP",
+        "loading": "Loading",
+        "noOrders": "No orders found",
+        "forStatus": "for status \"{{status}}\"",
+        "clearFilter": "Clear filter",
+        "id": "Order ID",
+        "orderId": "Order ID",
+        "customer": "Customer",
+        "phone": "Phone",
+        "city": "City",
+        "address": "Shipping Address",
+        "payment": "Payment Method",
+        "deliveryPrice": "Delivery Price",
+        "discount": "Discount",
+        "hint": "Note",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "actions": "Actions"
+    },
+    "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete",
+        "export": "Export",
+        "print": "Print"
+    },
+    "status": {
+        "pending": "Pending",
+        "confirmed": "Confirmed",
+        "processing": "Processing",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled",
+        "returned": "Returned"
+    },
+    "statusUpdate": {
+        "title": "Update Order #{{id}}",
+        "subtitle": "Change the order status. The change is saved immediately.",
+        "orderDetails": "Order Details",
+        "changeStatus": "Change Status",
+        "save": "Save Status",
+        "saving": "Saving...",
+        "reset": "Reset",
+        "success": "Order status updated successfully.",
+        "loadError": "Could not load the order.",
+        "saveError": "Could not update the status. Please try again.",
+        "backToOrders": "Back to Orders"
+    },
+    "details": {
+        "title": "Order Details",
+        "customerSection": "Customer & Shipping",
+        "orderSection": "Order Info",
+        "itemsSection": "Items",
+        "noItems": "No items in this order"
+    },
+    "payment": {
+        "cash": "Cash on delivery"
+    },
+    "toast": {
+        "deleteSuccess": "Order deleted successfully",
+        "deleteError": "Could not delete the order. Please try again.",
+        "statusUpdated": "Order status updated successfully",
+        "statusError": "Could not update the status. Please try again."
+    }
 }

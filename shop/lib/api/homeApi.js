@@ -1,83 +1,25 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+
+import { baseQueryWithReauth } from "./baseQuery";
 
 export const homeApi = createApi({
-   reducerPath: "homeApi",
+    reducerPath: "homeApi",
 
-   baseQuery: fetchBaseQuery({
-      baseUrl: process.env.NEXT_PUBLIC_API_URL + "/api",
-      credentials: "include",
-   }),
+    baseQuery: baseQueryWithReauth,
 
-   endpoints: (builder) => ({
-      login: builder.mutation({
-         query: (credentials) => ({
-            url: "/auth/login",
-            method: "POST",
-            body: credentials,
-            credentials: "include",
-         }),
-      }),
+    tagTypes: ["SectionProducts"],
 
-      getMe: builder.query({
-         query: () => ({
-            url: "/auth/me",
-            credentials: "include",
-         }),
-      }),
-
-      getCategories: builder.query({
-         query: () => "/categories",
-      }),
-
-      getOccasions: builder.query({
-         query: () => "/occasions",
-      }),
-
-      getColors: builder.query({
-         query: () => "/colors",
-      }),
-
-      getProducts: builder.query({
-         query: (params) => ({
-            url: "/products",
-            params,
-         }),
-      }),
-
-      getProduct: builder.query({
-         query: (id) => `/products/${id}`,
-      }),
-
-      getPriceRange: builder.query({
-         query: () => "/products/price-range",
-      }),
-
-      getBestSellers: builder.query({
-         query: () => "/products/best-sellers",
-      }),
-
-      getSectionSummaries: builder.query({
-         query: () => "/sections/summaries",
-      }),
-
-      getSectionProducts: builder.query({
-         query: (sectionId) => `/sections/${sectionId}/products`,
-      }),
-
-      
-   }),
+    endpoints: (builder) => ({
+        // Section Products
+        getSectionProducts: builder.query({
+            query: (sectionId) => ({
+                url: `/section/${sectionId}/products`,
+            }),
+            providesTags: (result, error, sectionId) => [
+                { type: "SectionProducts", id: sectionId },
+            ],
+        }),
+    }),
 });
 
-export const {
-   useLoginMutation,
-   useGetMeQuery,
-   useGetCategoriesQuery,
-   useGetOccasionsQuery,
-   useGetColorsQuery,
-   useGetProductsQuery,
-   useGetProductQuery,
-   useGetPriceRangeQuery,
-   useGetBestSellersQuery,
-   useGetSectionSummariesQuery,
-   useGetSectionProductsQuery,
-} = homeApi;
+export const { useGetSectionProductsQuery } = homeApi;

@@ -1,0 +1,44 @@
+{
+    "title": "Cities",
+    "subtitle": "Manage and organize your delivery cities",
+    "add": "Add City",
+    "edit": "Edit City",
+    "filter": "Filter by name...",
+    "empty": "No cities found",
+    "count_one": "{{count}} city",
+    "count_other": "{{count}} cities",
+    "table": {
+        "city": "City",
+        "nameEn": "Name (EN)",
+        "nameAr": "Name (AR)",
+        "deliveryPrice": "Delivery Price",
+        "available": "Available",
+        "control": "Actions"
+    },
+    "available": {
+        "yes": "Available",
+        "no": "Unavailable"
+    },
+    "form": {
+        "subtitle": "Create and manage city delivery information",
+        "cityName": "City name",
+        "deliveryPrice": "Delivery Price (EGP)",
+        "available": "City is available for delivery",
+        "save": "Save City",
+        "update": "Update City"
+    },
+    "validation": {
+        "nameEnRequired": "English name is required",
+        "nameArRequired": "Arabic name is required",
+        "priceRequired": "Delivery price must be greater than 0"
+    },
+    "toast": {
+        "createSuccess": "City created successfully",
+        "createError": "Failed to create city",
+        "updateSuccess": "City updated successfully",
+        "updateError": "Failed to update city",
+        "deleteSuccess": "City '{{name}}' deleted successfully",
+        "deleteError": "Failed to delete city",
+        "fetchError": "Failed to fetch cities"
+    }
+}

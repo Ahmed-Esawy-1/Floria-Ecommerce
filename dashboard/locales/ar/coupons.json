@@ -1,0 +1,59 @@
+{
+    "title": "الكوبونات",
+    "subtitle": "إدارة أكواد الخصم للعملاء",
+    "add": "إضافة كوبون",
+    "edit": "تعديل الكوبون",
+    "filter": "بحث بالكود...",
+    "empty": "لا توجد كوبونات",
+    "count_one": "{{count}} كوبون",
+    "count_other": "{{count}} كوبونات",
+    "table": {
+        "code": "الكود",
+        "usage": "الأستخدام",
+        "discount": "الخصم",
+        "minOrder": "الحد الأدنى للطلب",
+        "expiry": "ينتهي في",
+        "status": "الحالة",
+        "control": "الإجراءات"
+    },
+    "status": {
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "expired": "منتهي"
+    },
+    "form": {
+        "subtitle": "حدد الكود والخصم والشروط",
+        "code": "كود الكوبون",
+        "generate": "توليد",
+        "discount": "الخصم",
+        "minOrder": "الحد الأدنى للطلب",
+        "usageLimit": "حد الاستخدام",
+        "active": "الكوبون نشط",
+        "save": "حفظ الكوبون",
+        "update": "تحديث الكوبون",
+        "maxDiscount": "الحد الأقصى للخصم",
+        "startAt": "يبدأ في",
+        "endAt": "ينتهي في"
+    },
+    "validation": {
+        "codeRequired": "كود الكوبون مطلوب",
+        "valueRequired": "أدخل خصمًا أكبر من 0",
+        "percentageInvalid": "أدخل نسبة بين 1 و 100",
+        "usageLimitInvalid": "يجب ألا يقل حد الاستخدام عن {{min}}",
+        "minOrderRequired": "أدخل حدًا أدنى للطلب أكبر من 0",
+        "maxDiscountRequired": "أدخل حدًا أقصى للخصم أكبر من 0",
+        "startRequired": "تاريخ البداية مطلوب",
+        "endRequired": "تاريخ الانتهاء مطلوب",
+        "endBeforeStart": "يجب أن يكون الانتهاء بعد البداية"
+    },
+    "toast": {
+        "fetchError": "تعذر تحميل الكوبونات",
+        "createSuccess": "تم إنشاء الكوبون",
+        "createError": "تعذر إنشاء الكوبون",
+        "updateSuccess": "تم تحديث الكوبون",
+        "updateError": "تعذر تحديث الكوبون",
+        "deleteSuccess": "تم حذف الكوبون {{name}}",
+        "deleteError": "تعذر حذف الكوبون",
+        "generateError": "تعذر توليد الكود"
+    }
+}

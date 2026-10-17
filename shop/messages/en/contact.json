@@ -1,0 +1,65 @@
+{
+    "seo": {
+        "title": "Contact Us",
+        "description": "Get in touch with our team for bespoke arrangements, partnerships, and general inquiries."
+    },
+    "hero": {
+        "label": "Connect with us",
+        "title": "Get in Touch",
+        "description": "For bespoke arrangements, corporate partnerships, or simple inquiries about our daily collections.",
+        "imageAlt": "Elegant pink roses in a vase"
+    },
+    "info": {
+        "atelierTitle": "Our Atelier",
+        "addressTitle": "Address",
+        "address": "Enter your store address here",
+        "phoneTitle": "Contact Number",
+        "emailTitle": "Email Address",
+        "hoursTitle": "Opening Hours",
+        "hours": {
+            "mondayFriday": "Monday - Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday"
+        },
+        "followTitle": "Follow our Bloom",
+        "social": {
+            "facebook": "Facebook",
+            "instagram": "Instagram"
+        },
+        "mapTitle": "Our location on the map"
+    },
+    "form": {
+        "title": "Send us a message",
+        "subtitle": "We will get back to you within 24 business hours.",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "email@example.com",
+        "subjectLabel": "Subject",
+        "selectSubject": "Select a subject",
+        "subjects": {
+            "general": "General Inquiry",
+            "bespoke": "Bespoke Arrangement",
+            "events": "Wedding & Events",
+            "corporate": "Corporate Partnership",
+            "press": "Press & Media"
+        },
+        "messageLabel": "Your Message",
+        "messagePlaceholder": "How can we assist you today?",
+        "submit": "Send Inquiry",
+        "submitting": "Sending...",
+        "note": "We aim to respond to all inquiries within 24 business hours.",
+        "errors": {
+            "nameRequired": "Name is too short",
+            "emailInvalid": "Please enter a valid email",
+            "subjectRequired": "Please choose a subject",
+            "messageShort": "Message is too short (at least 10 characters)"
+        },
+        "successMessage": "Your message has been sent",
+        "genericError": "Couldn't send your message. Please try again."
+    },
+    "invalid": "Please check your details and try again.",
+    "tooMany": "Please wait a minute before sending another message.",
+    "unavailable": "Email service is unavailable right now. Please try later.",
+    "network": "Couldn't reach the server. Check your connection."
+}

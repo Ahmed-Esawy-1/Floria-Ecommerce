@@ -1,0 +1,13 @@
+{
+    "title": "Profile",
+    "subtitle": "Update your name and profile picture",
+    "changeImage": "Change picture",
+    "imageHint": "PNG or JPG, square images work best",
+    "avatarAlt": "Profile picture",
+    "nameLabel": "Name",
+    "cancel": "Cancel",
+    "save": "Save changes",
+    "saving": "Saving...",
+    "nameTooShort": "Name must be at least {min} characters",
+    "profileUpdated": "Your profile was updated successfully."
+}

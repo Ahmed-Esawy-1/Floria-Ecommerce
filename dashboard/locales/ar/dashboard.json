@@ -1,35 +1,44 @@
 {
-   "title": "نظرة عامة على لوحة التحكم",
-   "subTitle": "متابعة مؤشرات الأداء الرئيسية والبيانات التشغيلية.",
-   "dateRange": "آخر 30 يومًا",
-   "exportReport": "تصدير التقرير",
+    "title": "نظرة عامة على لوحة التحكم",
+    "subtitle": "متابعة مؤشرات الأداء الرئيسية والبيانات التشغيلية.",
+    "dateRange": "آخر 30 يومًا",
+    "exportReport": "تصدير التقرير",
 
-   "orders": {
-      "title": "أحدث الطلبات",
-      "subTitle": "آخر طلبات العملاء",
-      "viewAll": "عرض جميع الطلبات",
-      "order": "طلب",
-      "customer": "العميل",
-      "currency": "ج.م",
-      "status": {
-         "pending": "قيد الانتظار",
-         "processing": "قيد التنفيذ",
-         "completed": "مكتمل",
-         "cancelled": "ملغي"
-      }
-   },
+    "cards": {
+        "totalProducts": "إجمالي المنتجات",
+        "totalCategories": "إجمالي التصنيفات",
+        "totalOccasions": "إجمالي المناسبات",
+        "totalOrders": "إجمالي الطلبات",
+        "pendingOrders": "طلبات قيد الانتظار",
+        "deliveredOrders": "الطلبات المكتملة",
+        "monthlyRevenue": "الإيرادات الشهرية",
+        "yearlyRevenue": "الإيرادات السنوية"
+    },
 
-   "cards": {
-      "products": "إجمالي المنتجات",
-      "orders": "إجمالي الطلبات",
-      "categories": "إجمالي التصنيفات",
-      "occasions": "إجمالي المناسبات"
-   },
+    "topProducts": {
+        "title": "المنتجات الأكثر طلبًا",
+        "subtitle": "المنتجات الأعلى مبيعًا",
+        "orderCount": "عدد الطلبات",
+        "ordersTooltip_zero": "لا توجد طلبات",
+        "ordersTooltip_one": "طلب واحد",
+        "ordersTooltip_two": "طلبان",
+        "ordersTooltip_few": "{{count}} طلبات",
+        "ordersTooltip_many": "{{count}} طلبًا",
+        "ordersTooltip_other": "{{count}} طلب",
+        "empty": "لا توجد بيانات طلبات بعد"
+    },
 
-   "topProducts": {
-      "title": "المنتجات الأكثر طلبًا",
-      "subTitle": "المنتجات الأعلى مبيعًا",
-      "orderCount": "عدد الطلبات",
-      "ordersTooltip": "عدد الطلبات: {{count}}"
-   }
+    "orders": {
+        "title": "أحدث الطلبات",
+        "subtitle": "آخر طلبات العملاء",
+        "viewAll": "عرض جميع الطلبات",
+        "order": "طلب",
+        "customer": "العميل",
+        "currency": "ج.م",
+        "status": {
+            "pending": "قيد الانتظار",
+            "delivered": "تم التوصيل",
+            "cancelled": "ملغي"
+        }
+    }
 }

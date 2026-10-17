@@ -1,0 +1,24 @@
+{
+    "siteName": "فلوريا",
+    "seoDescription": "متجر زهور وهدايا فاخرة مع توصيل سريع داخل مصر.",
+    "viewAll": "رؤية الكل",
+    "home": "الرئيسية",
+    "occasions": "المناسبات",
+    "categories": "التصنيفات",
+    "bestSellers": "أفضل المبيعات",
+    "shop": "المتجر",
+    "shopNow": "تسوق الآن",
+    "quickAdd": "اضف للعربة",
+    "pound": "جنية",
+    "email": "floria@flowers.com",
+    "phone": "+20 123 1234 1234",
+    "address": "طنطا، الغربية، مصر",
+
+    "errors": {
+        "defaultError": "حدث خطأ، حاول مرة أخرى",
+        "loadError": {
+            "title": "تعذر تحميل بيانات الحساب",
+            "hint": "حاول تحديث الصفحة"
+        }
+    }
+}

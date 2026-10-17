@@ -1,78 +1,55 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
-import api from "../api/axios";
+import { useAuth } from "@/contexts/AuthContext";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Loading from "./Loading";
 
 const MainLayout = () => {
-   const navigate = useNavigate();
-   const [loading, setLoading] = useState(true);
-   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1024);
+    const navigate = useNavigate();
+    const { isAuthenticated, isLoading } = useAuth();
+    const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1024);
 
-   useEffect(() => {
-      async function checkAuth() {
-         try {
-            const response = await api.get("/auth/me");
-            const { user, dashboardAccess } = response.data;
-
-            if (!dashboardAccess) {
-               navigate("/");
-            } else {
-               const stored = localStorage.getItem("userLogin")
-                  ? "localStorage"
-                  : "sessionStorage";
-               window[stored].setItem("userLogin", JSON.stringify(user));
-               setLoading(false);
-            }
-         } catch (error) {
-            localStorage.removeItem("userLogin");
-            sessionStorage.removeItem("userLogin");
+    // Redirect once the auth check (done in AuthProvider) has settled.
+    useEffect(() => {
+        if (!isLoading && !isAuthenticated) {
             navigate("/");
-         }
-      }
+        }
+    }, [isLoading, isAuthenticated, navigate]);
 
-      checkAuth();
-   }, []);
+    useEffect(() => {
+        if (sidebarOpen && window.innerWidth < 1024) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [sidebarOpen]);
 
-   // MainLayout.jsx
-   useEffect(() => {
-      if (sidebarOpen && window.innerWidth < 1024) {
-         document.body.style.overflow = "hidden";
-      } else {
-         document.body.style.overflow = "";
-      }
+    useEffect(() => {
+        const handleResize = () => {
+            setSidebarOpen(window.innerWidth >= 1024);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-      return () => {
-         document.body.style.overflow = "";
-      };
-   }, [sidebarOpen]);
+    if (isLoading || !isAuthenticated) return <Loading />;
 
-   // When resize window
-   useEffect(() => {
-      const handleResize = () => {
-         if (window.innerWidth >= 1024) {
-            setSidebarOpen(true);
-         } else {
-            setSidebarOpen(false);
-         }
-      };
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-   }, []);
+    return (
+        <div className="bg-background text-on-background min-h-screen">
+            <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-   if (loading) return <Loading />;
-
-   return (
-      <div className="bg-background text-on-background min-h-screen">
-         <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
-         <Header onMenuClick={() => setSidebarOpen(true)} />
-         <main className="min-h-screen p-4 md:p-8 lg:ltr:ml-[280px] lg:rtl:mr-[280px]">
-            <Outlet />
-         </main>
-      </div>
-   );
-};;
+            <Header onMenuClick={() => setSidebarOpen(true)} />
+            <main className="min-h-screen p-4 md:p-8 lg:ltr:ml-[280px] lg:rtl:mr-[280px]">
+                <Suspense fallback={<Loading />}>
+                    <Outlet />
+                </Suspense>
+            </main>
+        </div>
+    );
+};
 
 export default MainLayout;

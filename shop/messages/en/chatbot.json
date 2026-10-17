@@ -1,0 +1,9 @@
+{
+    "title": "Store assistant",
+    "subtitle": "Ask about products and delivery",
+    "empty": "Hi! Ask me about our products or delivery cities.",
+    "placeholder": "Type your question...",
+    "send": "Send",
+    "open": "Open chat",
+    "error": "Sorry, something went wrong. Please try again."
+}

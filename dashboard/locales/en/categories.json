@@ -1,0 +1,26 @@
+{
+   "title": "Categories Inventory",
+   "subtitle": "Manage your categories and update data.",
+   "create": "Create Category",
+   "filter": "Filter by name…",
+   "showing": "Showing {{from}}–{{to}} of {{total}}",
+   "categories": "categories",
+   "results": "results",
+   "createTitle": "Create Category",
+   "createSubtitle": "Fill in the category details below.",
+   "editTitle": "Edit Category",
+   "editSubtitle": "Edit category details and image.",
+
+   "empty": {
+      "title": "No categories found",
+      "subtitle": "Try a different search term, or clear the filter.",
+      "clear": "Clear Filter"
+   },
+
+   "toast": {
+      "createSuccess": "Category created successfully.",
+      "updateSuccess": "Category updated successfully.",
+      "deleteSuccess": "Category deleted successfully.",
+      "deleteError": "Failed to delete category."
+   }
+}

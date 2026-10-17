@@ -1,0 +1,16 @@
+{
+    "title": "Watchlist",
+    "empty": "Your watchlist is empty.",
+    "browse": "Browse products",
+    "remove": "Remove from watchlist",
+    "loginRequired": "Please log in to view your watchlist.",
+    "login": "Log in",
+    "loading": "Loading...",
+    "error": "Something went wrong. Please try again.",
+
+    "toast": {
+        "add": "Added to your favorites",
+        "remove": "Removed from your favorites",
+        "actionFailed": "Couldn't update your favorites. Please try again."
+    }
+}

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import { Toaster } from "sonner";
 
+import { AuthProvider } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext.jsx";
 
@@ -11,15 +12,17 @@ import "../i18n";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
-   <StrictMode>
-      <BrowserRouter>
-         <LanguageProvider>
-            <ThemeProvider>
-               <Toaster position="top-right" richColors closeButton />
+    <StrictMode>
+        <BrowserRouter>
+            <AuthProvider>
+                <LanguageProvider>
+                    <ThemeProvider>
+                        <Toaster position="top-right" richColors closeButton />
 
-               <App />
-            </ThemeProvider>
-         </LanguageProvider>
-      </BrowserRouter>
-   </StrictMode>,
+                        <App />
+                    </ThemeProvider>
+                </LanguageProvider>
+            </AuthProvider>
+        </BrowserRouter>
+    </StrictMode>,
 );

@@ -1,25 +1,73 @@
 {
-   "title": "الطلبات",
-   "subTitle": "إدارة وتتبع دورة مشتريات العملاء.",
-   "totalOrders": "إجمالي الطلبات",
-   "status": {
-      "all": "الكل",
-      "pending": "قيد الانتظار",
-      "shipped": "تم الشحن",
-      "delivered": "تم التسليم",
-      "completed": "مكتمل",
-      "cancelled": "ملغي"
-   },
-   "revenue": "الإيرادات",
-   "table": {
-      "filter": "تصفية حسب الحالة",
-      "id": "رقم الطلب",
-      "customer": "العميل",
-      "date": "التاريخ",
-      "amount": "المبلغ",
-      "status": "الحالة",
-      "actions": "الإجراءات",
-      "showingResults": "عرض {{from}} إلى {{to}} من أصل {{total}} نتيجة",
-      "pound": "جنية"
-   }
+    "title": "الطلبات",
+    "subtitle": "إدارة دورة حياة مشتريات العملاء ومتابعتها.",
+    "totalOrders": "إجمالي الطلبات",
+    "table": {
+        "filter": "كل الحالات",
+        "showingResults": "عرض {{from}} - {{to}} من {{total}}",
+        "pound": "ج.م",
+        "loading": "جارٍ التحميل",
+        "noOrders": "لا توجد طلبات",
+        "forStatus": "بحالة {{status}}",
+        "clearFilter": "مسح الفلتر",
+        "id": "رقم الطلب",
+        "orderId": "رقم الطلب",
+        "customer": "العميل",
+        "phone": "رقم الهاتف",
+        "city": "المدينة",
+        "address": "عنوان الشحن",
+        "payment": "طريقة الدفع",
+        "deliveryPrice": "سعر التوصيل",
+        "discount": "الخصم",
+        "hint": "ملاحظة",
+        "date": "التاريخ",
+        "amount": "المبلغ",
+        "status": "الحالة",
+        "actions": "الإجراءات"
+    },
+    "actions": {
+        "view": "عرض",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "export": "تصدير",
+        "print": "طباعة"
+    },
+    "status": {
+        "pending": "قيد الانتظار",
+        "confirmed": "مؤكد",
+        "processing": "قيد التجهيز",
+        "delivered": "تم التوصيل",
+        "cancelled": "ملغي",
+        "returned": "مرتجع"
+    },
+    "statusUpdate": {
+        "title": "تحديث حالة الطلب #{{id}}",
+        "subtitle": "غيّر حالة الطلب، وسيتم حفظها فورًا.",
+        "orderDetails": "تفاصيل الطلب",
+        "changeStatus": "تغيير الحالة",
+        "save": "حفظ الحالة",
+        "saving": "جارٍ الحفظ...",
+        "reset": "إعادة تعيين",
+        "success": "تم تحديث حالة الطلب بنجاح.",
+        "loadError": "تعذّر تحميل الطلب.",
+        "saveError": "تعذّر تحديث الحالة. حاول مرة أخرى.",
+        "backToOrders": "العودة إلى الطلبات"
+    },
+    "details": {
+        "title": "تفاصيل الطلب",
+        "customerSection": "بيانات العميل والشحن",
+        "orderSection": "بيانات الطلب",
+        "itemsSection": "المنتجات",
+        "noItems": "لا توجد منتجات في هذا الطلب"
+    },
+    "payment": {
+        "cash": "الدفع نقدًا عند الاستلام"
+    },
+
+    "toast": {
+        "deleteSuccess": "تم حذف الطلب بنجاح",
+        "deleteError": "تعذّر حذف الطلب. حاول مرة أخرى.",
+        "statusUpdated": "تم تحديث حالة الطلب بنجاح",
+        "statusError": "تعذّر تحديث الحالة. حاول مرة أخرى."
+    }
 }

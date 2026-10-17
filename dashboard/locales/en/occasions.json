@@ -1,0 +1,22 @@
+{
+   "title": "Occasions Inventory",
+   "subtitle": "Manage your occasions and update data.",
+   "create": "Create Occasion",
+
+   "filter": "Filter by name...",
+   "showing": "Showing {{from}}–{{to}} of {{total}}",
+   "occasions": "Occasions",
+   "results": "results",
+
+   "empty": {
+      "title": "No occasions found",
+      "subtitle": "Try a different search term, or clear the filter.",
+      "clear": "Clear Filter"
+   },
+   "toast": {
+      "createSuccess": "Occasion created successfully.",
+      "updateSuccess": "Occasion updated successfully.",
+      "deleteSuccess": "Occasion deleted successfully.",
+      "deleteError": "Failed to delete occasion."
+   }
+}

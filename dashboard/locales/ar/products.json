@@ -1,0 +1,135 @@
+{
+    "title": "مخزون المنتجات",
+    "subtitle": " أدر المنتجات، وتابع المخزون، وحافظ على دقة الأسعار في جميع منتجاتك.",
+    "create": "إضافة منتج جديد",
+    "search": "ابحث بواسطة الاسم...",
+
+    "table": {
+        "name": "اسم المنتج",
+        "category": "التصنيف",
+        "description": "الوصف",
+        "price": "السعر",
+        "control": "التحكم",
+        "notFound": "لا يوجد منتجات.",
+        "clear": "حذف البحث"
+    },
+
+    "createPage": {
+        "title": "إضافة منتج جديد",
+        "subtitle": "أنشئ منتجًا جديدًا مع تحديد السعر، وإضافة الصور، وإدارة المخزون، وإدخال المعلومات التفصيلية."
+    },
+
+    "editPage": {
+        "title": "تعديل المنتج",
+        "subtitle": "حدّث تفاصيل المنتج، والسعر، والصور، والمخزون، والمتغيرات."
+    },
+
+    "form": {
+        "nameEn": "اسم المنتج بالأنجليزية",
+        "nameAr": "اسم المنتج بالعربيه",
+        "price": "السعر",
+        "pricePlaceholder": "0.00 جنية",
+        "images": "الصور",
+        "general": "وضع الصور العامة",
+        "generalBody": "سيتم رفع الصور مباشرةً إلى المنتج.",
+        "variant": "وضع متغيرات الألوان",
+        "variantBody": "سيتم رفع الصور لكل متغير لون بشكل منفصل.",
+        "generalDropzone": "انقر لرفع الصور",
+        "variantDropzone": "لا توجد ألوان بعد — أضف لونًا بالأعلى",
+        "descriptionEn": "الوصف بالأنجليزية",
+        "descriptionAr": "الوصف بالعربيه",
+        "createSave": "حفظ المنتج",
+        "editSave": "حفظ التغيرات",
+        "offer": "الخصم / العرض",
+        "hasOffer": "تفعيل عرض الخصم",
+        "hasOfferBody": "قم بالتفعيل لتطبيق خصم على هذا المنتج",
+        "discountType": "نوع الخصم",
+        "selectType": "اختر النوع",
+        "percentage": "نسبة مئوية",
+        "fixedAmount": "مبلغ ثابت",
+        "discountValue": "قيمة الخصم",
+        "startAt": "تاريخ البداية",
+        "endAt": "تاريخ النهاية",
+        "offerActive": "العرض نشط"
+    },
+
+    "imageModeModal": {
+        "titleColor": "التبديل إلى متغيرات الألوان؟",
+        "titleGeneral": "التبديل إلى الصور العامة؟",
+        "generalImages_zero": "{{count}} صورة عامة",
+        "generalImages_one": "صورة عامة واحدة",
+        "generalImages_two": "صورتان عامتان",
+        "generalImages_few": "{{count}} صور عامة",
+        "generalImages_many": "{{count}} صورة عامة",
+        "generalImages_other": "{{count}} صورة عامة",
+        "colorVariants_zero": "{{count}} متغير لون وصوره",
+        "colorVariants_one": "متغير لون واحد وصوره",
+        "colorVariants_two": "متغيرا لون وصورهما",
+        "colorVariants_few": "{{count}} متغيرات ألوان وصورها",
+        "colorVariants_many": "{{count}} متغير لون وصوره",
+        "colorVariants_other": "{{count}} متغير لون وصوره",
+        "message_zero": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفها. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "message_one": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفها. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "message_two": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفهما. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "message_few": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفها. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "message_many": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفها. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "message_other": "لديك <1>{{items}}</1>. سيؤدي تبديل الوضع إلى حذفها. لا يمكن التراجع عن ذلك بعد الحفظ.",
+        "keep": "الاحتفاظ بالوضع الحالي",
+        "switch": "التبديل والحذف"
+    },
+
+    "colorRow": {
+        "pickColor": "اختر اللون",
+        "dropTitle": "اسحب الصور هنا أو انقر للرفع",
+        "dropSubtitle": "PNG، JPG، WEBP — يمكن رفع عدة صور",
+        "cover": "الغلاف",
+        "image_zero": "لا توجد صور",
+        "image_one": "صورة واحدة",
+        "image_two": "صورتان",
+        "image_few": "{{count}} صور",
+        "image_many": "{{count}} صورة",
+        "image_other": "{{count}} صورة"
+    },
+
+    "empty": {
+        "occasion": "بدون مناسبة",
+        "category": "بدون تصنيف"
+    },
+
+    "validation": {
+        "nameEnRequired": "اسم المنتج باللغة الإنجليزية مطلوب.",
+        "nameArRequired": "اسم المنتج باللغة العربية مطلوب.",
+        "priceRequired": "يجب أن يكون السعر أكبر من 0.",
+        "descriptionEnRequired": "الوصف باللغة الإنجليزية مطلوب.",
+        "descriptionArRequired": "الوصف باللغة العربية مطلوب.",
+        "imagesRequired": "يرجى رفع صورة واحدة على الأقل.",
+        "colorsRequired": "يرجى إضافة لون واحد على الأقل.",
+        "colorImagesRequired": "يجب أن يحتوي كل لون على صورة واحدة على الأقل.",
+        "discountTypeRequired": "نوع الخصم مطلوب",
+        "discountValueRequired": "يجب أن تكون قيمة الخصم أكبر من 0",
+        "startAtRequired": "تاريخ البداية مطلوب",
+        "endAtRequired": "تاريخ النهاية مطلوب",
+        "endAtAfterStart": "يجب أن يكون تاريخ النهاية بعد تاريخ البداية"
+    },
+    "toast": {
+        "createSuccess": "تم إنشاء المنتج بنجاح.",
+        "updateSuccess": "تم تحديث المنتج بنجاح.",
+        "createError": "فشل في إنشاء المنتج.",
+        "updateError": "فشل في تحديث المنتج.",
+        "moveToTrashSuccess": "تم نقل \"{{name}}\" إلى سلة المهملات بنجاح.",
+        "moveToTrashError": "فشل في نقل \"{{name}}\" إلى سلة المهملات.",
+        "bulkMoveToTrashSuccess_one": "تم نقل منتج واحد إلى سلة المهملات.",
+        "bulkMoveToTrashSuccess_other": "تم نقل {{count}} منتج إلى سلة المهملات.",
+        "bulkMoveToTrashError": "فشل في نقل المنتجات المحددة إلى سلة المهملات."
+    },
+
+    "noResults": "لا توجد نتائج",
+    "showing": "{{start}}–{{end}} من {{count}}",
+    "results": "نتائج",
+    "products": "منتجات",
+    "select": "اختار...",
+
+    "selected_one": "منتج واحد محدد",
+    "selected_other": "{{count}} منتج محدد",
+    "deleteSelected": "حذف المحدد"
+}

@@ -1,0 +1,24 @@
+{
+    "occasions": "Occasions",
+    "categories": "Categories",
+    "bestSellers": "Best Sellers",
+    "shop": "Shop",
+    "searchPlaceholder": "Search...",
+
+    "userMenu": {
+        "login": "Login",
+        "signup": "Sign Up",
+        "profile": "View Profile",
+        "editProfile": "Update Profile",
+        "changePassword": "Change Password",
+        "trackOrder": "Track Order",
+        "logout": "Logout",
+        "watchlist": "Watchlist"
+    },
+
+    "search": {
+        "noResults": "No products found",
+        "error": "Could not search right now. Please try again.",
+        "currency": "EGP"
+    }
+}

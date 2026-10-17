@@ -1,0 +1,24 @@
+{
+    "siteName": "Floria",
+    "seoDescription": "Luxury flowers and gifts with fast delivery across Egypt.",
+    "viewAll": "View All",
+    "home": "Home",
+    "occasions": "Occasions",
+    "categories": "Categories",
+    "bestSellers": "Best Sellers",
+    "shop": "Shop",
+    "shopNow": "Shop Now",
+    "quickAdd": "Add To Cart",
+    "pound": "EGP",
+    "email": "floria@flowers.com",
+    "phone": "+20 123 1234 1234",
+    "address": "Tanta, Gharbia, Egypt",
+
+    "errors": {
+        "defaultError": "Something went wrong, please try again",
+        "loadError": {
+            "title": "Could not load your account data",
+            "hint": "Try refreshing the page"
+        }
+    }
+}

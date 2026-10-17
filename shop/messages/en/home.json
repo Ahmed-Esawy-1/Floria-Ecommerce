@@ -1,0 +1,40 @@
+{
+    "seo": {
+        "title": "Floria | Luxury Flowers & Gifts",
+        "description": "Shop beautiful flowers and luxury gifts with fast delivery across Egypt.",
+        "keywords": "flower bouquets, rose bouquets, natural roses, flower vases, luxury flowers, gift flowers, occasion flowers, flower delivery Egypt, fresh flowers, Floria"
+    },
+
+    "occasionsTitle": "Shop by Occasion",
+    "occasionsDesc": "Find the perfect expression for your feelings",
+    "categoriesTitle": "Shop by Category",
+    "categoriesDesc": "Discover flowers for every moment",
+
+    "hero": {
+        "label": "Signature Bouquets",
+        "title_line1": "Beautifully",
+        "title_line2": "Arranged Bouquets",
+        "description": "Discover thoughtfully crafted bouquets, hand-arranged with blooms and refined details to make every occasion feel truly special.",
+        "button_primary": "Shop Now",
+        "button_secondary": "Offers"
+    },
+
+    "brands": "Brands",
+
+    "signup": {
+        "titleLine1": "Celebrate life's",
+        "titleLine2": "beautiful moments.",
+        "description": "Sign up for our newsletter to receive weekly inspiration, exclusive offers, and the latest flower collections.",
+        "button": "Subscribe"
+    },
+
+    "footer": {
+        "tagline": "Elevating the art of gifting through sophisticated floral designs and premium curated experiences.",
+        "linksTitle": "Links",
+        "trackOrder": "Track My Order",
+        "contactUs": "Contact Us",
+        "getInTouchTitle": "Get in Touch",
+
+        "copyright": "© 2026 Floria Flowers and Gifts. All rights reserved."
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "breadcrumbHome": "Home",
+    "breadcrumbShop": "Floral Arrangements",
+    "title": "Explore Our Collection",
+    "filters": "Filters",
+    "products": "products",
+    "loadMore": "Load More",
+    "noProducts": "No products match your filters.",
+
+    "filter": {
+        "title": "Filters",
+        "description": "Refine your selection",
+        "categories": "Categories",
+        "palette": "Palette",
+        "price Range": "Your Price Range",
+        "occasions": "Occasions",
+        "clear": "Clear All",
+        "close": "Close filters",
+        "priceTitle": "Your price range",
+        "currency": "EGP"
+    },
+
+    "loading": "Loading...",
+    "variants": {
+        "all": {
+            "title": "All Products",
+            "description": "Browse our full collection of luxury bouquets, arrangements and gifts."
+        },
+        "newArrivals": {
+            "title": "New Arrivals",
+            "description": "Discover the latest floral arrangements and gifts added to our collection."
+        },
+        "bestSellers": {
+            "title": "Best Sellers",
+            "description": "Our most loved bouquets and gifts, chosen again and again by our customers."
+        },
+        "offers": {
+            "title": "Special Offers",
+            "description": "Limited-time discounts on selected luxury bouquets and gifts."
+        }
+    }
+}

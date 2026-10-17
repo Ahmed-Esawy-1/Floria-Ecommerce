@@ -1,115 +1,337 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router";
 
-import Login from "./pages/Login";
-import MainLayout from "./components/MainLayout";
-import Home from "./pages/dashboard/Home";
+import RequirePermission from "./components/RequirePermission";
+import { PERMISSIONS } from "./constants/permissions";
+import Loading from "./components/Loading";
+import Coupons from "./pages/coupons/Coupons";
 
-import Products from "./pages/products/Products";
-import CreateProduct from "./pages/products/CreateProduct";
-import UpdateProduct from "./pages/products/UpdateProduct";
+const Login = lazy(() => import("./pages/Login"));
+const MainLayout = lazy(() => import("./components/MainLayout"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
-import Occasions from "./pages/occasions/Occasions";
+const Home = lazy(() => import("./pages/dashboard/Home"));
 
-import Categories from "./pages/categories/Categories";
+const Products = lazy(() => import("./pages/products/Products"));
+const CreateProduct = lazy(() => import("./pages/products/CreateProduct"));
+const EditProduct = lazy(() => import("./pages/products/EditProduct"));
 
-import Colors from "./pages/colors/Colors";
+const Cities = lazy(() => import("./pages/cities/cities"));
 
-import Orders from "./pages/orders/Orders";
-import UpdateOrder from "./pages/orders/UpdateOrder";
+const Occasions = lazy(() => import("./pages/occasions/Occasions"));
+const Categories = lazy(() => import("./pages/categories/Categories"));
+const Colors = lazy(() => import("./pages/colors/Colors"));
 
-import Sections from "./pages/sections/Sections";
-import CreateSection from "./pages/sections/CreateSection";
-import EditSection from "./pages/sections/EditSection";
+const Orders = lazy(() => import("./pages/orders/Orders"));
+const UpdateOrder = lazy(() => import("./pages/orders/UpdateOrderStatus"));
 
-import Users from "./pages/Users/Users";
+const Sections = lazy(() => import("./pages/sections/Sections"));
+const CreateSection = lazy(() => import("./pages/sections/CreateSection"));
+const EditSection = lazy(() => import("./pages/sections/EditSection"));
 
-import TrashPage from "./pages/TrashPage";
+const Employees = lazy(() => import("./pages/employees/Employees"));
+const CreateEmployee = lazy(() => import("./pages/employees/CreateEmployee"));
+const EditEmployee = lazy(() => import("./pages/employees/EditEmployee"));
+
+const TrashPage = lazy(() => import("./pages/TrashPage"));
 
 function App() {
-   return (
-      <Routes>
-         <Route path="/" element={<Login />} />
+    return (
+        <Suspense fallback={<Loading />}>
+            <Routes>
+                <Route path="/" element={<Login />} />
 
-         <Route element={<MainLayout />}>
-            <Route path="/dashboard" element={<Home />} />
+                <Route element={<MainLayout />}>
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.VIEW_DASHBOARD}
+                            >
+                                <Home />
+                            </RequirePermission>
+                        }
+                    />
 
-            <Route path="/products">
-               <Route index element={<Products />} />
-               <Route path="create-product" element={<CreateProduct />} />
-               <Route
-                  path="update-product/:productId"
-                  element={<UpdateProduct />}
-               />
-            </Route>
+                    {/* ORDERS */}
+                    <Route path="/orders">
+                        <Route
+                            index
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.READ_ORDER}
+                                >
+                                    <Orders />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path=":orderId/edit/status"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.UPDATE_ORDER}
+                                >
+                                    <UpdateOrder />
+                                </RequirePermission>
+                            }
+                        />
+                    </Route>
 
-            <Route path="/occasions" element={<Occasions />} />
-            <Route path="/categories" element={<Categories />} />
+                    {/* PRODUCTS */}
+                    <Route path="/products">
+                        <Route
+                            index
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.READ_PRODUCT}
+                                >
+                                    <Products />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path="create"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.CREATE_PRODUCT}
+                                >
+                                    <CreateProduct />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path=":productId/edit"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.UPDATE_PRODUCT}
+                                >
+                                    <EditProduct />
+                                </RequirePermission>
+                            }
+                        />
+                    </Route>
 
-            <Route path="/orders">
-               <Route index element={<Orders />} />
-               <Route path="update-order/:orderId" element={<UpdateOrder />} />
-            </Route>
+                    {/* CITIES */}
+                    <Route
+                        path="/cities"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_CITY}
+                            >
+                                <Cities />
+                            </RequirePermission>
+                        }
+                    />
 
-            <Route path="/users">
-               <Route index element={<Users />} />
-            </Route>
+                    {/* COUPONS */}
+                    <Route
+                        path="/coupons"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_COUPON}
+                            >
+                                <Coupons />
+                            </RequirePermission>
+                        }
+                    />
 
-            <Route path="/sections">
-               <Route index element={<Sections />} />
-               <Route path="create" element={<CreateSection />} />
-               <Route path="edit/:sectionId" element={<EditSection />} />
-            </Route>
+                    {/* OCCASIONS */}
+                    <Route
+                        path="/occasions"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_OCCASION}
+                            >
+                                <Occasions />
+                            </RequirePermission>
+                        }
+                    />
 
-            <Route path="/colors">
-               <Route index element={<Colors />} />
-            </Route>
+                    {/* CATEGORIES */}
+                    <Route
+                        path="/categories"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_CATEGORY}
+                            >
+                                <Categories />
+                            </RequirePermission>
+                        }
+                    />
 
-            {/* Trash */}
-            <Route
-               path="/products/trash"
-               element={
-                  <TrashPage
-                     title="Products Trash"
-                     endpoint="/admin/products/trash"
-                     restoreEndpoint="/admin/products"
-                     deleteEndpoint="/admin/products"
-                     type="product"
-                  />
-               }
-            />
+                    {/* COLORS */}
+                    <Route path="/colors">
+                        <Route
+                            index
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.READ_COLOR}
+                                >
+                                    <Colors />
+                                </RequirePermission>
+                            }
+                        />
+                    </Route>
 
-            <Route
-               path="/categories/trash"
-               element={
-                  <TrashPage
-                     title="Categories Trash"
-                     endpoint="/categories/trash"
-                     restoreEndpoint="/categories"
-                     deleteEndpoint="/categories"
-                     type="category"
-                  />
-               }
-            />
+                    {/* SECTIONS */}
+                    <Route path="/sections">
+                        <Route
+                            index
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.READ_SECTION}
+                                >
+                                    <Sections />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path="create"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.CREATE_SECTION}
+                                >
+                                    <CreateSection />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path=":sectionId/edit"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.UPDATE_SECTION}
+                                >
+                                    <EditSection />
+                                </RequirePermission>
+                            }
+                        />
+                    </Route>
 
-            <Route
-               path="/occasions/trash"
-               element={
-                  <TrashPage
-                     title="Occasions Trash"
-                     endpoint="/occasions/trash"
-                     restoreEndpoint="/occasions"
-                     deleteEndpoint="/occasions"
-                     type="occasion"
-                  />
-               }
-            />
-         </Route>
+                    {/* USERS */}
+                    <Route path="/employees">
+                        <Route
+                            index
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.READ_EMPLOYEE}
+                                >
+                                    <Employees />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path="create"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.CREATE_EMPLOYEE}
+                                >
+                                    <CreateEmployee />
+                                </RequirePermission>
+                            }
+                        />
+                        <Route
+                            path=":employeeId/edit"
+                            element={
+                                <RequirePermission
+                                    permission={PERMISSIONS.UPDATE_EMPLOYEE}
+                                >
+                                    <EditEmployee />
+                                </RequirePermission>
+                            }
+                        />
+                    </Route>
 
-         {/* 
-      <Route path="/not-found" element={<NotFound />} />
-      <Route path="*" element={<NotFound />} /> */}
-      </Routes>
-   );
+                    {/* TRASH */}
+                    <Route
+                        path="/products/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_PRODUCT}
+                            >
+                                <TrashPage
+                                    endpoint="/products/trash"
+                                    backPath="/products"
+                                    type="product"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/categories/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_CATEGORY}
+                            >
+                                <TrashPage
+                                    endpoint="/categories/trash"
+                                    backPath="/categories"
+                                    type="category"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/occasions/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_OCCASION}
+                            >
+                                <TrashPage
+                                    endpoint="/occasions/trash"
+                                    backPath="/occasions"
+                                    type="occasion"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/colors/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_COLOR}
+                            >
+                                <TrashPage
+                                    endpoint="/colors/trash"
+                                    backPath="/colors"
+                                    type="color"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/sections/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_SECTION}
+                            >
+                                <TrashPage
+                                    endpoint="/sections/trash"
+                                    backPath="/sections"
+                                    type="section"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/employees/trash"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.DELETE_EMPLOYEE}
+                            >
+                                <TrashPage
+                                    endpoint="/employees/trash"
+                                    backPath="/employees"
+                                    type="employee"
+                                />
+                            </RequirePermission>
+                        }
+                    />
+                </Route>
+
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Suspense>
+    );
 }
 
 export default App;

@@ -1,18 +1,59 @@
 {
-   "sidebar": {
-      "title": "فلو",
-      "subTitle": "لوحة التحكم",
-      "home": "الرئيسة",
-      "orders": "الطلبات",
-      "products": "المنتجات",
-      "occasions": "المناسبات",
-      "categories": "التصنيفات",
-      "colors": "الألوان",
-      "sections": "الأقسام",
-      "users": "المستخدمين"
-   },
-   
+    "trash": "سلة المهملات",
+    "create": "إنشاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "saving": "حفظ...",
+    "cancel": "إلغاء",
+    "actions": "الإجراءات",
 
-   "products": "Products",
-   "orders": "Orders"
+    "select": "تحديد",
+    "selectedCount": "تم تحديد {{count}}",
+    "deleteSelected": "حذف المحدد",
+
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "sections": "الأقسام",
+    "employees": "الموظفين",
+
+    "category": "فئة",
+    "occasion": "مناسبة",
+    "pound": "جنية",
+
+    "name": "الاسم",
+    "english": "بالإنجليزية",
+    "arabic": "بالعربية",
+    "image": "الصورة",
+    "current": "الحالية",
+    "new": "الجديدة",
+
+    "collection": {
+        "createSubtitle": "أدخل تفاصيل {{label}} أدناه.",
+        "editSubtitle": "قم بتعديل تفاصيل {{label}} والصورة.",
+        "categoryLabel": "فئة",
+        "occasionLabel": "مناسبة",
+        "nameEnRequired": "اسم {{label}} بالإنجليزية مطلوب",
+        "nameArRequired": "اسم {{label}} بالعربية مطلوب",
+        "nameExists": "اسم {{label}} موجود بالفعل"
+    },
+
+    "deleteModal": {
+        "moveTitle": "نقل إلى سلة المهملات",
+        "deleteTitle": "حذف نهائي",
+        "moveMessage": "هل أنت متأكد من نقل {{name}} إلى سلة المهملات؟",
+        "deleteMessage": "هل أنت متأكد من حذف {{name}} نهائيًا؟",
+        "restoreHint": "يمكنك استعادة {{item}} من سلة المهملات في أي وقت.",
+        "deleteHint": "لا يمكن التراجع عن هذا الإجراء، وسيتم فقدان جميع البيانات نهائيًا.",
+        "move": "نقل إلى سلة المهملات",
+        "delete": "حذف نهائي",
+        "them": "العناصر",
+        "it": "العنصر"
+    },
+
+    "errors": {
+        "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+        "loginFailed": "حدث خطأ ما. حاول مرة أخرى."
+    }
 }

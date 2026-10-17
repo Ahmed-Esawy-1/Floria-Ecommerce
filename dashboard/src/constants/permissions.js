@@ -1,0 +1,59 @@
+const PERMISSION_NAMES = [
+    "VIEW_DASHBOARD",
+    // SECTION
+    "CREATE_SECTION",
+    "READ_SECTION",
+    "UPDATE_SECTION",
+    "DELETE_SECTION",
+    // CATEGORY
+    "CREATE_CATEGORY",
+    "READ_CATEGORY",
+    "UPDATE_CATEGORY",
+    "DELETE_CATEGORY",
+    // OCCASION
+    "CREATE_OCCASION",
+    "READ_OCCASION",
+    "UPDATE_OCCASION",
+    "DELETE_OCCASION",
+    // COLOR
+    "CREATE_COLOR",
+    "READ_COLOR",
+    "UPDATE_COLOR",
+    "DELETE_COLOR",
+    // PRODUCT
+    "CREATE_PRODUCT",
+    "READ_PRODUCT",
+    "UPDATE_PRODUCT",
+    "DELETE_PRODUCT",
+    // CITY
+    "CREATE_CITY",
+    "READ_CITY",
+    "UPDATE_CITY",
+    "DELETE_CITY",
+    // COUPON
+    "CREATE_COUPON",
+    "READ_COUPON",
+    "UPDATE_COUPON",
+    "DELETE_COUPON",
+    // ORDER
+    "READ_ORDER",
+    "UPDATE_ORDER",
+    "DELETE_ORDER",
+    // EMPLOYEE
+    "CREATE_EMPLOYEE",
+    "READ_EMPLOYEE",
+    "UPDATE_EMPLOYEE",
+    "DELETE_EMPLOYEE",
+    // ROLE
+    "CREATE_ROLE",
+    "READ_ROLE",
+    "UPDATE_ROLE",
+    "DELETE_ROLE",
+    //--------------------------
+    "MANAGE_PERMISSIONS",
+    "MANAGE_SETTINGS",
+];
+
+export const PERMISSIONS = Object.fromEntries(
+    PERMISSION_NAMES.map((name) => [name, name]),
+);

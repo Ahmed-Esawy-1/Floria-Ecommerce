@@ -1,0 +1,45 @@
+{
+    "title": "Shop Sections",
+    "subtitle": "Manage your storefront layout.",
+    "new": "New Section",
+    "one": "{{count}} Section",
+    "other": "{{count}} Sections",
+    "empty": {
+        "title": "No sections yet",
+        "subtitle": "Create your first section to start organising your shop.",
+        "noProduct": "No products in this section."
+    },
+    "noUrl": "No URL yet",
+    "product_one": "{{count}} product",
+    "product_other": "{{count}} products",
+    "create": {
+        "title": "Create New Section",
+        "subtitle": "Create a new section and organize products for your storefront."
+    },
+    "edit": {
+        "title": "Edit Section",
+        "subtitle": "Update section details and manage its products."
+    },
+    "form": {
+        "urlVisit": "Url Visit",
+        "noProducts": "No Products Found.",
+        "urlPlaceholder": "Select Categories Or Occasions Or Both.",
+        "urlHint": "The Url is create based on categories and occasions that you select",
+        "productPlaceholder": "Write the product name",
+        "errors": {
+            "nameEnRequired": "English section name is required.",
+            "nameArRequired": "Arabic section name is required.",
+            "minProducts": "Please select at least {{count}} products."
+        },
+        "searching": "Searching..."
+    },
+    "toast": {
+        "createSuccess": "Section created successfully.",
+        "createFailed": "Failed to create section.",
+        "updateSuccess": "Section updated successfully.",
+        "updateFailed": "Failed to update section.",
+        "deleteSuccess": "Section deleted successfully.",
+        "deleteFailed": "Failed to delete section.",
+        "fetchFailed": "Failed to load sections."
+    }
+}

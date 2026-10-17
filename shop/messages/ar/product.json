@@ -1,0 +1,31 @@
+{
+    "selectColor": "اختر اللون",
+    "priceIncludesVat": "السعر شامل الضريبة",
+    "addToCart": "أضف إلى السلة",
+    "description": "الوصف",
+    "noDescription": "لا يوجد وصف متاح.",
+
+    "relatedTitle": "قد يعجبك أيضًا",
+
+    "commentsTitle": "آراء العملاء",
+    "loadingComments": "جارٍ تحميل التقييمات...",
+    "commentsError": "تعذّر تحميل التقييمات. حاول مرة أخرى لاحقًا.",
+    "noComments": "لا توجد تقييمات بعد. كن أول من يقيّم هذا المنتج.",
+    "reviewsCount": "{count, plural, zero {لا تقييمات} one {تقييم واحد} two {تقييمان} few {# تقييمات} many {# تقييمًا} other {# تقييم}}",
+
+    "writeComment": "اكتب تقييمك",
+    "yourRating": "تقييمك",
+    "yourComment": "تعليقك",
+    "commentPlaceholder": "شاركنا تجربتك مع هذا المنتج...",
+    "submitComment": "إرسال التقييم",
+    "submitting": "جارٍ الإرسال...",
+    "commentAdded": "شكرًا لك! تمت إضافة تقييمك.",
+    "commentFailed": "حدث خطأ. حاول مرة أخرى.",
+    "commentInvalid": "اختر تقييمًا واكتب تعليقًا.",
+    "loginToComment": "سجّل الدخول لكتابة تقييم.",
+    "login": "تسجيل الدخول",
+
+    "showMoreComments": "عرض المزيد من التقييمات",
+    "productError": "تعذّر تحميل المنتج.",
+    "retry": "إعادة المحاولة"
+}

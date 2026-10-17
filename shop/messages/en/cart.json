@@ -1,0 +1,17 @@
+{
+    "title": "Your Cart",
+    "subtitle": "Review your luxury floral selection before checkout.",
+    "emptyTitle": "Your cart is empty",
+    "emptyDesc": "Add some items to get started!",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "packaging": "Luxury Packaging",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "securePayment": "Secure Encrypted Payment",
+    "delivery": "Delivery",
+    "calculatedAtCheckout": "Calculated at checkout",
+    "removeItem": "Remove item",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity"
+}

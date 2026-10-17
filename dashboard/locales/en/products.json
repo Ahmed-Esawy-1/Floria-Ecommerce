@@ -1,0 +1,115 @@
+{
+    "title": "Product Inventory",
+    "subtitle": "Manage products, monitor inventory, and maintain accurate pricing across your catalog.",
+    "create": "Create New Product",
+    "search": "Search by product name...",
+    "table": {
+        "name": "Product Name",
+        "category": "Category",
+        "description": "Description",
+        "price": "Price",
+        "control": "Control",
+        "notFound": "No products found.",
+        "clear": "Clear Search"
+    },
+    "createPage": {
+        "title": "Create New Product",
+        "subtitle": "Create a new product with pricing, images, inventory, and detailed information."
+    },
+    "editPage": {
+        "title": "Edit Product",
+        "subtitle": "Create a new product with pricing, images, inventory, and detailed information."
+    },
+    "form": {
+        "nameEn": "English Name",
+        "nameAr": "Arabic Name",
+        "price": "Price",
+        "pricePlaceholder": "EGP 0.00",
+        "images": "Images",
+        "general": "General images mode",
+        "generalBody": "Images are uploaded directly to the product",
+        "variant": "Color variants mode",
+        "variantBody": "Images are uploaded per color variant",
+        "generalDropzone": "Click to upload images",
+        "variantDropzone": "No colors yet — add one above",
+        "descriptionEn": "English Description",
+        "descriptionAr": "Arabic Description",
+        "createSave": "Save Product",
+        "editSave": "Save Changes",
+        "offer": "Discount / Offer",
+        "hasOffer": "Enable discount offer",
+        "hasOfferBody": "Turn on to apply a discount to this product",
+        "discountType": "Discount Type",
+        "selectType": "Select a type",
+        "percentage": "Percentage",
+        "fixedAmount": "Fixed Amount",
+        "discountValue": "Discount Value",
+        "startAt": "Start Date",
+        "endAt": "End Date",
+        "offerActive": "Offer is active"
+    },
+
+    "imageModeModal": {
+        "titleColor": "Switch to color variants?",
+        "titleGeneral": "Switch to general images?",
+        "generalImages_one": "{{count}} general image",
+        "generalImages_other": "{{count}} general images",
+        "colorVariants_one": "{{count}} color variant and its images",
+        "colorVariants_other": "{{count}} color variants and their images",
+        "message_one": "You have <1>{{items}}</1> set up. Switching modes will clear it. This can't be undone once you save.",
+        "message_other": "You have <1>{{items}}</1> set up. Switching modes will clear them. This can't be undone once you save.",
+        "keep": "Keep Current Mode",
+        "switch": "Switch & Clear"
+    },
+
+    "colorRow": {
+        "pickColor": "Pick color",
+        "dropTitle": "Drop images or click to upload",
+        "dropSubtitle": "PNG, JPG, WEBP — multiple allowed",
+        "cover": "Cover",
+        "image_one": "{{count}} image",
+        "image_other": "{{count}} images"
+    },
+
+    "empty": {
+        "occasion": "No Occasion",
+        "category": "No Category"
+    },
+
+    "validation": {
+        "nameEnRequired": "English product name is required.",
+        "nameArRequired": "Arabic product name is required.",
+        "priceRequired": "Price must be greater than 0.",
+        "descriptionEnRequired": "English description is required.",
+        "descriptionArRequired": "Arabic description is required.",
+        "imagesRequired": "Upload at least one image.",
+        "colorsRequired": "Add at least one color.",
+        "colorImagesRequired": "Each color must have at least one image.",
+        "discountTypeRequired": "Discount type is required",
+        "discountValueRequired": "Discount value must be greater than 0",
+        "startAtRequired": "Start date is required",
+        "endAtRequired": "End date is required",
+        "endAtAfterStart": "End date must be after start date"
+    },
+
+    "toast": {
+        "createSuccess": "Product created successfully.",
+        "updateSuccess": "Product updated successfully.",
+        "createError": "Failed to create product.",
+        "updateError": "Failed to update product.",
+        "moveToTrashSuccess": "\"{{name}}\" was moved to Trash successfully.",
+        "moveToTrashError": "Failed to move \"{{name}}\" to Trash.",
+        "bulkMoveToTrashSuccess_one": "{{count}} product was moved to Trash.",
+        "bulkMoveToTrashSuccess_other": "{{count}} products were moved to Trash.",
+        "bulkMoveToTrashError": "Failed to move the selected products to Trash."
+    },
+
+    "noResults": "No results",
+    "showing": "{{start}}–{{end}} of {{count}}",
+    "results": "result",
+    "products": "products",
+
+    "selected_one": "{{count}} selected product",
+    "selected_other": "{{count}} selected products",
+    "deleteSelected": "Delete Selected"
+}

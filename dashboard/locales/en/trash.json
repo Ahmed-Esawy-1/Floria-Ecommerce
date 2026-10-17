@@ -1,0 +1,84 @@
+{
+    "title": "Trash",
+    "breadcrumb": "Trash",
+
+    "types": {
+        "product": {
+            "title": "Products Trash",
+            "subtitle": "Restore or permanently delete removed products.",
+            "backLabel": "Products"
+        },
+        "category": {
+            "title": "Categories Trash",
+            "subtitle": "Restore or permanently delete removed categories.",
+            "backLabel": "Categories"
+        },
+        "occasion": {
+            "title": "Occasions Trash",
+            "subtitle": "Restore or permanently delete removed occasions.",
+            "backLabel": "Occasions"
+        },
+        "color": {
+            "title": "Colors Trash",
+            "subtitle": "Restore or permanently delete removed colors.",
+            "backLabel": "Colors"
+        },
+        "section": {
+            "title": "Sections Trash",
+            "subtitle": "Restore or permanently delete removed sections.",
+            "backLabel": "Sections"
+        },
+        "employee": {
+            "title": "Employees Trash",
+            "subtitle": "Restore or permanently delete removed employees.",
+            "backLabel": "Employees"
+        },
+        "customer": {
+            "title": "Customers Trash",
+            "subtitle": "Restore or permanently delete removed customers.",
+            "backLabel": "Customers"
+        }
+    },
+
+    "buttons": {
+        "select": "Select",
+        "cancel": "Cancel",
+        "restoreSelected": "Restore Selected",
+        "deletePermanently": "Delete Permanently"
+    },
+
+    "stats": {
+        "pendingDeletion": "Pending Deletion"
+    },
+
+    "bulk": {
+        "selected_one": "{{count}} selected item",
+        "selected_other": "{{count}} selected items"
+    },
+
+    "table": {
+        "item": "Item",
+        "deletedAt": "Deleted At",
+        "actions": "Actions",
+        "empty": "Trash is empty",
+        "recently": "Recently"
+    },
+
+    "toast": {
+        "loadFailed": "Failed to load trash items",
+        "restoreSuccess": "Restored successfully",
+        "restoreFailed": "Restore failed",
+        "bulkRestoreSuccess": "Items restored successfully",
+        "bulkRestoreFailed": "Bulk restore failed",
+        "deleteSuccess": "Deleted permanently",
+        "deleteFailed": "Delete failed",
+        "bulkDeleteSuccess": "Items deleted permanently",
+        "bulkDeleteFailed": "Bulk delete failed"
+    },
+
+    "modal": {
+        "item": "this item",
+        "selected_one": "{{count}} selected item",
+        "selected_other": "{{count}} selected items"
+    }
+}

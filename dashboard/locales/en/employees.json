@@ -1,0 +1,63 @@
+{
+    "title": "Users",
+    "subtitle": "Manage all registered users",
+    "create": "Create New User Accout",
+    "searchPlaceholder": "Search by name or email...",
+    "loading": "Loading users...",
+    "noResults": "No users found",
+    "table": {
+        "id": "User ID",
+        "userName": "User Name",
+        "email": "Email Address",
+        "role": "Role",
+        "control": "Control"
+    },
+
+    "createPage": {
+        "title": "Create User",
+        "subtitle": "Add a new user account"
+    },
+
+    "editPage": {
+        "title": "Edit User",
+        "subtitle": "Update user account details"
+    },
+
+    "form": {
+        "cancel": "Cancel",
+        "submit": "Create User",
+        "editSubmit": "Save Changes",
+        "submitting": "Saving...",
+
+        "image": "Profile Image",
+        "imageHint": "Click or drag an image here to upload",
+        "userName": "Username",
+        "email": "Email",
+        "password": "Password",
+        "passwordEditHint": "(leave blank to keep current password)",
+        "passwordPlaceholder": "Enter a new password",
+        "role": "Role",
+        "rolePlaceholder": "Select a role",
+
+        "errors": {
+            "userName": "Username must be at least 2 characters",
+            "email": "Please enter a valid email address",
+            "password": "Password must be at least 8 characters",
+            "passwordPattern": "Password must contain at least one letter and one digit",
+            "role": "Please select a role",
+            "generic": "Something went wrong. Please try again."
+        }
+    },
+
+    "toast": {
+        "createSuccess": "User created successfully.",
+        "updateSuccess": "User updated successfully.",
+        "createError": "Failed to create User.",
+        "updateError": "Failed to update User.",
+        "moveToTrashSuccess": "\"{{name}}\" was moved to Trash successfully.",
+        "moveToTrashError": "Failed to move \"{{name}}\" to Trash.",
+        "bulkMoveToTrashSuccess": "{{count}} شؤؤخعىفس were moved to Trash.",
+        "bulkMoveToTrashError": "Failed to move the selected شؤؤخعىفس to Trash.",
+        "loadError": "Failed to load user data"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "category": {
+        "title": "Flower Categories",
+        "description": "Browse our collection of floral categories and discover the perfect arrangement for every style and preference.",
+        "noCategoriesTitle": "No Categories Found",
+        "noCategoriesDesc": "We couldn't find any categories right now."
+    },
+
+    "occasion": {
+        "title": "Floral Occasions",
+        "description": "Celebrate birthdays, anniversaries, weddings, and life's special moments with handcrafted floral arrangements.",
+        "noOccasionsTitle": "No Occasions Found",
+        "noOccasionsDesc": "We couldn't find any occasions right now."
+    }
+}

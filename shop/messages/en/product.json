@@ -1,0 +1,31 @@
+{
+    "selectColor": "Select color",
+    "priceIncludesVat": "Price includes VAT",
+    "addToCart": "Add to cart",
+    "description": "Description",
+    "noDescription": "No description available.",
+
+    "relatedTitle": "You may also like",
+
+    "commentsTitle": "Customer reviews",
+    "loadingComments": "Loading reviews...",
+    "commentsError": "Could not load reviews. Please try again later.",
+    "noComments": "No reviews yet. Be the first to review this product.",
+    "reviewsCount": "{count, plural, one {# review} other {# reviews}}",
+
+    "writeComment": "Write a review",
+    "yourRating": "Your rating",
+    "yourComment": "Your comment",
+    "commentPlaceholder": "Share your experience with this product...",
+    "submitComment": "Submit review",
+    "submitting": "Submitting...",
+    "commentAdded": "Thank you! Your review was added.",
+    "commentFailed": "Something went wrong. Please try again.",
+    "commentInvalid": "Please choose a rating and write a comment.",
+    "loginToComment": "Please log in to write a review.",
+    "login": "Log in",
+
+    "showMoreComments": "Show more reviews",
+    "productError": "Could not load this product.",
+    "retry": "Try again"
+}

@@ -1,0 +1,40 @@
+{
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "phoneInvalid": "Enter a valid Egyptian mobile number (11 digits)",
+    "city": "City",
+    "selectCity": "Select city",
+    "shipTo": "Ship to",
+    "shippingInfo": "Shipping information",
+    "address": "Address",
+    "addressPlaceholder": "Street, building, apartment, nearby landmarks",
+    "reviewOrder": "Review your order",
+    "qty": "Qty",
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "total": "Total",
+    "couponLabel": "Coupon code (optional)",
+    "couponPlaceholder": "Enter coupon code",
+    "couponOfferNote": "Coupons can't be used if any product in your order already has an offer.",
+    "couponOfferConflict": "This coupon can't be applied because one of the products has an active offer. Remove the coupon or the product and try again.",
+    "couponApplied": "Coupon",
+    "couponDiscountNote": "The discount will be calculated when the order is placed.",
+    "choosePayment": "Choose payment method",
+    "paymentMethods": {
+        "cod": "Cash on delivery",
+        "card": "Credit card",
+        "wallet": "Mobile wallet"
+    },
+    "steps": {
+        "info": "Shipping",
+        "review": "Review",
+        "payment": "Payment"
+    },
+    "back": "Back",
+    "next": "Next",
+    "placeOrder": "Place order",
+    "placingOrder": "Placing order...",
+    "orderFailed": "Something went wrong, please try again.",
+    "paymentUnavailable": "This payment method is not available right now. You can choose cash on delivery.",
+    "notAvailable": "Not available now"
+}
