@@ -35,7 +35,7 @@ export function clearStoredTokens() {
 }
 
 const api = axios.create({
-    baseURL: BASE_URL,
+    baseURL: BASE_URL + "/api",
 });
 
 // Make [Authorization: Bearer ${accessToken}]  FOR EVERY REQUEST
