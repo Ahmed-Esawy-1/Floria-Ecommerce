@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/features/auth/useAuth";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 
 function FullScreenSpinner() {
     return (

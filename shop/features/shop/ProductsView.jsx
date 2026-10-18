@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import ProductCard from "@/components/ProductCard";
 import ProductSkeleton from "@/components/loading/ProductSkeleton";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import Filters from "./components/Filters";
 import { useProductsList } from "./useProductsList";
 import { PAGE_SIZE, PRODUCT_VARIANTS } from "./constants";

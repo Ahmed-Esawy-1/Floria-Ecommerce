@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Package } from "lucide-react";
 import { useGetMyOrdersQuery } from "@/lib/api/ordersApi";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import OrderCard from "./components/OrderCard";
 import StatusFilter from "./components/StatusFilter";
 import { PAGE_SIZE } from "./constants";

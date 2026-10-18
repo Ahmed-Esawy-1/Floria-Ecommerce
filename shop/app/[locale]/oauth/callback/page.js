@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "@/features/auth/authSlice";
 import { tokenStorage } from "@/lib/api/tokenStorage";
 import { useTranslations } from "next-intl";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 
 export default function OAuthCallbackPage() {
     const router = useRouter();

@@ -3,7 +3,7 @@
 import { notFound, useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import { useGetProductQuery } from "@/lib/api/shopApi";
 import { decodeId } from "@/lib/hashId";
 

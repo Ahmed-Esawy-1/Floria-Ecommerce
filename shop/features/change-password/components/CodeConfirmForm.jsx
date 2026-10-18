@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { INPUT_CLASS } from "../constants";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 
 export default function CodeConfirmForm({
     code,

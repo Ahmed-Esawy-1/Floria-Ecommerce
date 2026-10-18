@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import getErrorMessage from "@/utils/getErrorMessage";
 import { useLoginMutation } from "@/lib/api/authApi";
 import { useAuth } from "@/features/auth/useAuth";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import GoogleAuthButton from "@/components/GoogleAuthButton";
 import AuthShell from "./components/AuthShell";
 import FormField from "./components/FormField";

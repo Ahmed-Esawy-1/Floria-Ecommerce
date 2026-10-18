@@ -8,7 +8,7 @@ import { Flower, User, Mail, Lock } from "lucide-react";
 
 import { useAuth } from "@/features/auth/useAuth";
 import { useSignupMutation } from "@/lib/api/authApi";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import GoogleAuthButton from "@/components/GoogleAuthButton";
 
 import FormField from "./components/FormField";

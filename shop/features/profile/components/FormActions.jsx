@@ -1,4 +1,4 @@
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import { useTranslations } from "next-intl";
 
 export default function FormActions({ isDirty, saving, onReset }) {

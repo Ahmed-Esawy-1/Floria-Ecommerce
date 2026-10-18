@@ -8,7 +8,7 @@ import {
     selectSubtotal,
 } from "@/features/cart/cartSlice";
 
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import CartItem from "./components/CartItem";
 import OrderSummary from "./components/OrderSummary";
 

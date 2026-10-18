@@ -1,4 +1,4 @@
-import { PRODUCT_VARIANTS } from "@/features/products/constants";
+import { PRODUCT_VARIANTS } from "@/features/shop/constants";
 import { SITE_URL } from "@/lib/config";
 import { LOCALES } from "@/lib/seo/site";
 

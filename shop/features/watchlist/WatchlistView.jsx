@@ -10,7 +10,7 @@ import { useWatchlistActions } from "./useWatchlistActions";
 import { API_URL } from "@/lib/config";
 import { getPriceInfo } from "@/utils/price";
 import { useFormatNumber } from "@/hooks/useFormatNumber";
-import Spinner from "@/components/loading/spinner";
+import Spinner from "@/components/loading/Spinner";
 import { resolveImageUrl } from "@/utils/resolveImageUrl";
 import { encodeId } from "@/lib/hashId";
 
