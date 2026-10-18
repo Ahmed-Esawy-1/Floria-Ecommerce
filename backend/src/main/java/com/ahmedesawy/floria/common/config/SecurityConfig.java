@@ -45,6 +45,9 @@ public class SecurityConfig {
     @Value("${app.frontend-base-url}")
     private String frontendBaseUrl;
 
+    @Value("${app.cors.allowed-origins:http://localhost:5173,http://localhost:3000}")
+    private List<String> allowedOrigins;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -78,7 +81,7 @@ public class SecurityConfig {
                         .requestMatchers("/login/oauth2/**").permitAll()
                         .requestMatchers("/account/**").authenticated()
                         .requestMatchers("/error").permitAll()
-                        // PUPLIC SHOP
+                        // PUBLIC SHOP
                         .requestMatchers("/shop/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/occasions/**").permitAll()
@@ -106,27 +109,20 @@ public class SecurityConfig {
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .oauth2Login(oauth2 -> oauth2
-                        .successHandler(
-                                oAuth2AuthenticationSuccessHandler)
+                        .successHandler(oAuth2AuthenticationSuccessHandler)
                         .failureHandler((req, res, ex) -> {
                             res.sendRedirect(frontendBaseUrl + "/login?error=oauth_failed");
                         }))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-
-        ;
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
-    // ---- CORS
-    // ---------------------------------------------------------------------
+    // ---- CORS ------------------------------------------------------------
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173", // dashboard
-                "http://localhost:3000" // shop
-        ));
+        config.setAllowedOrigins(allowedOrigins);
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("X-XSRF-TOKEN"));
