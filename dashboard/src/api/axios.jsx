@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "./config";
 
 const TOKENS_KEY = "authTokens";
 
@@ -34,7 +35,7 @@ export function clearStoredTokens() {
 }
 
 const api = axios.create({
-    baseURL: "http://localhost:8080/api",
+    baseURL: BASE_URL,
 });
 
 // Make [Authorization: Bearer ${accessToken}]  FOR EVERY REQUEST
