@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import CloseIcon from "@mui/icons-material/Close";
 import SaveIcon from "@mui/icons-material/Save";
 import { useTranslation } from "react-i18next";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const CollectionFormModal = ({
     isOpen,
@@ -64,7 +65,7 @@ const CollectionFormModal = ({
             try {
                 setNameEn(editData.nameEn ?? "");
                 setNameAr(editData.nameAr ?? "");
-                setExistingImage(`${BASE_URL}${editData.imageUrl}`);
+                setExistingImage(resolveImageUrl(editData.imageUrl));
                 setOriginal({
                     nameEn: editData.nameEn,
                     nameAr: editData.nameAr,

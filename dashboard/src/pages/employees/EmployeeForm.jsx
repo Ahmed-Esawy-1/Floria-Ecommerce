@@ -8,6 +8,7 @@ import { BASE_URL } from "@/api/config";
 import Loading from "@/components/Loading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getRoleLabel } from "@/helpers/roles";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const DEFAULT_FORM = {
     userName: "",
@@ -62,7 +63,7 @@ const EmployeeForm = ({ mode, employeeId }) => {
                     roleId: data.roleId || data.role?.id || "",
                 };
                 const loadedPreview = data.imageUrl
-                    ? BASE_URL + data.imageUrl
+                    ? resolveImageUrl(data.imageUrl)
                     : null;
 
                 setForm(loadedForm);
@@ -225,7 +226,7 @@ const EmployeeForm = ({ mode, employeeId }) => {
                     roleId: data.roleId || data.role?.id || "",
                 };
                 const updatedPreview = data.imageUrl
-                    ? BASE_URL + data.imageUrl
+                    ? resolveImageUrl(data.imageUrl)
                     : null;
 
                 setForm(updatedForm);

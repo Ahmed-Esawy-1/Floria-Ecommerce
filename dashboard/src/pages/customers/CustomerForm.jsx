@@ -37,7 +37,7 @@ const CustomerForm = ({ customerId }) => {
                     email: data.email || "",
                 };
                 const loadedPreview = data.imageUrl
-                    ? BASE_URL + data.imageUrl
+                    ? resolveImageUrl(data.imageUrl)
                     : null;
 
                 setForm(loadedForm);
@@ -132,7 +132,7 @@ const CustomerForm = ({ customerId }) => {
                 email: data.email || "",
             };
             const updatedPreview = data.imageUrl
-                ? BASE_URL + data.imageUrl
+                ? resolveImageUrl(data.imageUrl)
                 : null;
 
             setForm(updatedForm);

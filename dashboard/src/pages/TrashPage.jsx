@@ -18,6 +18,7 @@ import DeletedModal from "../components/DeleteModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
 import { BASE_URL } from "@/api/config";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const iconMap = {
     product: Inventory2Icon,
@@ -331,7 +332,9 @@ const TrashPage = ({ endpoint, backPath, type }) => {
                                                     <img
                                                         alt={`${item.nameEn ?? item.userName} Image`}
                                                         className="w-10 h-10 shrink-0 object-cover border border-slate-200 rounded-lg"
-                                                        src={`${BASE_URL}${item.imageUrl}`}
+                                                        src={resolveImageUrl(
+                                                            item.imageUrl,
+                                                        )}
                                                     />
                                                 )}
                                                 {type === "color" &&

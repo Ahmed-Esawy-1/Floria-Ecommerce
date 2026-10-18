@@ -440,7 +440,9 @@ const Products = () => {
                                                     <img
                                                         alt={`${product.nameEn} Image`}
                                                         className="w-10 h-10 shrink-0 object-cover border border-slate-200 rounded-lg"
-                                                        src={`${BASE_URL}${product.primaryImageUrl}`}
+                                                        src={resolveImageUrl(
+                                                            product.primaryImageUrl,
+                                                        )}
                                                     />
                                                     <div className="min-w-0 max-w-45">
                                                         <HoverRevealText

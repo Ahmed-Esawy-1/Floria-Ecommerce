@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 
 import EventIcon from "@mui/icons-material/Event";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const CollectionCard = ({
     data,
@@ -28,7 +29,7 @@ const CollectionCard = ({
             <div className="h-72 bg-surface-container-high relative overflow-hidden">
                 {data.imageUrl ? (
                     <img
-                        src={`${BASE_URL}${data.imageUrl}`}
+                        src={resolveImageUrl(data.imageUrl)}
                         alt={data.nameEn}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

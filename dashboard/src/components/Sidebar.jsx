@@ -20,6 +20,7 @@ import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import BadgeIcon from "@mui/icons-material/Badge";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CloseIcon from "@mui/icons-material/Close";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const links = [
     {
@@ -193,7 +194,7 @@ const Sidebar = ({ open, onClose }) => {
                             className="w-10 h-10 bg-slate-200 rounded-full object-cover"
                             src={
                                 user?.imageUrl
-                                    ? `${BASE_URL}${user.imageUrl}`
+                                    ? resolveImageUrl(user.imageUrl)
                                     : "images/default_userImage.svg"
                             }
                         />

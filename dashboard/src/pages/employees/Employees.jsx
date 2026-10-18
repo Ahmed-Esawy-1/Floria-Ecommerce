@@ -18,6 +18,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DeletedModal from "@/components/DeleteModal";
 import Can from "@/components/Can";
 import { PERMISSIONS } from "@/constants/permissions";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const ITEMS_PER_PAGE = 10;
 const MAX_VISIBLE_PAGES = 4;
@@ -404,7 +405,9 @@ const Employees = () => {
                                                     className="w-10 h-10 rounded-full object-cover border border-slate-200"
                                                     src={
                                                         employee?.imageUrl
-                                                            ? `${BASE_URL}${employee.imageUrl}`
+                                                            ? resolveImageUrl(
+                                                                  employee.imageUrl,
+                                                              )
                                                             : `/images/default_userImage.svg`
                                                     }
                                                 />

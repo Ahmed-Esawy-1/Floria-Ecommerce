@@ -11,6 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import SaveIcon from "@mui/icons-material/Save";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 const MIN_PRODUCTS = 5;
 const MAX_PRODUCTS = 15;
@@ -288,7 +289,9 @@ export default function SectionForm({ initialData, onSubmit, submitting }) {
                                 >
                                     {p.primaryImageUrl && (
                                         <img
-                                            src={BASE_URL + p.primaryImageUrl}
+                                            src={resolveImageUrl(
+                                                p.primaryImageUrl,
+                                            )}
                                             alt=""
                                             className="w-8 h-8 rounded-lg object-cover"
                                         />
@@ -321,7 +324,7 @@ export default function SectionForm({ initialData, onSubmit, submitting }) {
                             </span>
                             {p.primaryImageUrl && (
                                 <img
-                                    src={BASE_URL + p.primaryImageUrl}
+                                    src={resolveImageUrl(p.primaryImageUrl)}
                                     alt=""
                                     className="w-8 h-8 rounded-lg object-cover"
                                 />

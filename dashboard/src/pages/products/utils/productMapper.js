@@ -1,4 +1,5 @@
 import { BASE_URL } from "@/api/config";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 export function mapProductResponse(data) {
     // Product Basic Info
@@ -38,7 +39,7 @@ export function mapProductResponse(data) {
         ? (data.images ?? []).map((img) => ({
               id: img.id,
               existing: true,
-              preview: BASE_URL + img.imageUrl,
+              preview: resolveImageUrl(img.imageUrl),
           }))
         : [];
 
@@ -54,7 +55,7 @@ export function mapProductResponse(data) {
               images: (c.images ?? []).map((img) => ({
                   id: img.id,
                   existing: true,
-                  preview: BASE_URL + img.imageUrl,
+                  preview: resolveImageUrl(img.imageUrl),
               })),
           }))
         : [];
