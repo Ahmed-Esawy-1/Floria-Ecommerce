@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { INPUT_CLASS } from "../constants";
 import PasswordChecklist from "./PasswordChecklist";
-import Spinner from "./Spinner";
+import Spinner from "@/components/loading/spinner";
 
 export default function PasswordRequestForm({
     form,
