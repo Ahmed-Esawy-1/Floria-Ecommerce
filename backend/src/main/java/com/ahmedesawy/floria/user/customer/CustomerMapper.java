@@ -1,6 +1,7 @@
 package com.ahmedesawy.floria.user.customer;
 
 import com.ahmedesawy.floria.common.util.ImageUrlResolver;
+import com.ahmedesawy.floria.user.customer.dto.CustomerResponse;
 
 public class CustomerMapper {
 

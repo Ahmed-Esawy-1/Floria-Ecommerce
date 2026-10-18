@@ -1,0 +1,53 @@
+{
+    "title": "الأدوار",
+    "subtitle": "عرض أدوار النظام وأوصافها",
+    "create": "إنشاء دور",
+    "searchPlaceholder": "البحث بالاسم أو الرمز",
+    "loading": "جارٍ تحميل الأدوار...",
+    "noResults": "لا توجد أدوار",
+    "table": {
+        "name": "الدور",
+        "description": "الوصف"
+    },
+    "editDisabled": "تعديل الأدوار غير متاح حالياً",
+    "createPage": {
+        "title": "إنشاء دور",
+        "subtitle": "حدد دوراً جديداً وما الذي يمكنه الوصول إليه",
+        "code": "الرمز",
+        "codePlaceholder": "مثال: STORE_MANAGER",
+        "nameEn": "الاسم (بالإنجليزية)",
+        "nameAr": "الاسم (بالعربية)",
+        "namePlaceholderEn": "مثال: Store Manager",
+        "descriptionEn": "الوصف (بالإنجليزية)",
+        "descriptionAr": "الوصف (بالعربية)",
+        "permissions": "الصلاحيات",
+        "permissionsSelected_zero": "لم يتم اختيار أي صلاحية",
+        "permissionsSelected_one": "صلاحية واحدة محددة",
+        "permissionsSelected_two": "صلاحيتان محددتان",
+        "permissionsSelected_few": "{{count}} صلاحيات محددة",
+        "permissionsSelected_many": "{{count}} صلاحية محددة",
+        "permissionsSelected_other": "{{count}} صلاحية محددة",
+        "submit": "إنشاء الدور",
+        "submitting": "جارٍ الإنشاء..."
+    },
+    "actions": {
+        "CREATE": "إنشاء",
+        "READ": "عرض",
+        "UPDATE": "تعديل",
+        "DELETE": "حذف"
+    },
+    "errors": {
+        "codeRequired": "رمز الدور مطلوب.",
+        "codeInvalid": "يجب أن يحتوي الرمز على حروف إنجليزية كبيرة وشرطات سفلية فقط.",
+        "nameEnRequired": "الاسم بالإنجليزية مطلوب.",
+        "nameArRequired": "الاسم بالعربية مطلوب.",
+        "descriptionEnRequired": "الوصف بالإنجليزية مطلوب.",
+        "descriptionArRequired": "الوصف بالعربية مطلوب.",
+        "permissionsRequired": "اختر صلاحية واحدة على الأقل.",
+        "createFailed": "فشل إنشاء الدور."
+    },
+    "toast": {
+        "loadError": "فشل تحميل الأدوار",
+        "createSuccess": "تم إنشاء الدور بنجاح"
+    }
+}

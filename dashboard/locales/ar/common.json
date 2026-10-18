@@ -7,6 +7,7 @@
     "saving": "حفظ...",
     "cancel": "إلغاء",
     "actions": "الإجراءات",
+    "reset": "إعادة تعيين",
 
     "select": "تحديد",
     "selectedCount": "تم تحديد {{count}}",
@@ -17,6 +18,8 @@
     "occasions": "المناسبات",
     "sections": "الأقسام",
     "employees": "الموظفين",
+    "customers": "العملاء",
+    "roles": "الأدوار",
 
     "category": "فئة",
     "occasion": "مناسبة",

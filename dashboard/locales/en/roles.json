@@ -1,0 +1,49 @@
+{
+    "title": "Roles",
+    "subtitle": "View system roles and their descriptions",
+    "create": "Create role",
+    "searchPlaceholder": "Search by name or code",
+    "loading": "Loading roles...",
+    "noResults": "No roles found",
+    "table": {
+        "name": "Role",
+        "description": "Description"
+    },
+    "editDisabled": "Editing roles is not available yet",
+    "createPage": {
+        "title": "Create Role",
+        "subtitle": "Define a new role and choose what it can access",
+        "code": "Code",
+        "codePlaceholder": "e.g. STORE_MANAGER",
+        "nameEn": "Name (English)",
+        "nameAr": "Name (Arabic)",
+        "namePlaceholderEn": "e.g. Store Manager",
+        "descriptionEn": "Description (English)",
+        "descriptionAr": "Description (Arabic)",
+        "permissions": "Permissions",
+        "permissionsSelected_one": "{{count}} permission selected",
+        "permissionsSelected_other": "{{count}} permissions selected",
+        "submit": "Create Role",
+        "submitting": "Creating..."
+    },
+    "actions": {
+        "CREATE": "Create",
+        "READ": "Read",
+        "UPDATE": "Update",
+        "DELETE": "Delete"
+    },
+    "errors": {
+        "codeRequired": "Role code is required.",
+        "codeInvalid": "Code must be uppercase letters and underscores only.",
+        "nameEnRequired": "English name is required.",
+        "nameArRequired": "Arabic name is required.",
+        "descriptionEnRequired": "English description is required.",
+        "descriptionArRequired": "Arabic description is required.",
+        "permissionsRequired": "Select at least one permission.",
+        "createFailed": "Failed to create role."
+    },
+    "toast": {
+        "loadError": "Failed to load roles",
+        "createSuccess": "Role created successfully"
+    }
+}

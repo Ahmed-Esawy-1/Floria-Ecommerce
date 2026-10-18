@@ -1,4 +1,4 @@
-package com.ahmedesawy.floria.user.customer;
+package com.ahmedesawy.floria.user.customer.dto;
 
 import com.ahmedesawy.floria.user.AuthProvider;
 import com.ahmedesawy.floria.user.UserResponse;

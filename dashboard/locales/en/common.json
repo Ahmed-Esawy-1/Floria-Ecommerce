@@ -7,12 +7,15 @@
     "save": "Save",
     "cancel": "Cancel",
     "actions": "Actions",
+    "reset": "Reset",
 
     "products": "Products",
     "categories": "Categories",
     "occasions": "Occasions",
     "category": "Category",
     "employees": "Employees",
+    "customers": "Customers",
+    "roles": "Roles",
 
     "sections": "Sections",
     "occasion": "Occasion",

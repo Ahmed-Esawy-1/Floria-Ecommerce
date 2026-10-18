@@ -1,0 +1,30 @@
+{
+    "title": "Customers",
+    "subtitle": "Manage customer accounts",
+    "searchPlaceholder": "Search by name or email",
+    "loading": "Loading customers...",
+    "noResults": "No customers found",
+    "table": {
+        "userName": "Name",
+        "email": "Email",
+        "provider": "Provider"
+    },
+    "editPage": {
+        "title": "Edit Customer",
+        "subtitle": "Update the customer's name, email, or photo"
+    },
+    "form": {
+        "image": "Profile image",
+        "imageHint": "Click or drop an image here",
+        "userName": "Name",
+        "email": "Email",
+        "provider": "Provider",
+        "submit": "Save changes",
+        "submitting": "Saving..."
+    },
+    "toast": {
+        "loadError": "Failed to load customers",
+        "updateSuccess": "Customer updated",
+        "updateError": "Failed to update customer"
+    }
+}

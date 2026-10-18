@@ -2,7 +2,7 @@ package com.ahmedesawy.floria.role;
 
 public enum Permission {
     VIEW_DASHBOARD("view:dashboard"),
-    
+
     // Section Permissions
     CREATE_SECTION("create:section"),
     READ_SECTION("read:section"),
@@ -55,6 +55,12 @@ public enum Permission {
     READ_EMPLOYEE("read:employee"),
     UPDATE_EMPLOYEE("update:employee"),
     DELETE_EMPLOYEE("delete:employee"),
+
+    // CUSTOMER
+    CREATE_CUSTOMER("create:customer"),
+    READ_CUSTOMER("read:customer"),
+    UPDATE_CUSTOMER("update:customer"),
+    DELETE_CUSTOMER("delete:customer"),
 
     // Role Permissions
     CREATE_ROLE("create:role"),

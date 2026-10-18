@@ -10,6 +10,8 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
+import PeopleIcon from "@mui/icons-material/People";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import CategoryIcon from "@mui/icons-material/Category";
@@ -79,6 +81,18 @@ const links = [
         path: "/employees",
         icon: BadgeIcon,
         permission: PERMISSIONS.READ_EMPLOYEE,
+    },
+    {
+        title: "customers",
+        path: "/customers",
+        icon: PeopleIcon,
+        permission: PERMISSIONS.READ_CUSTOMER,
+    },
+    {
+        title: "roles",
+        path: "/roles",
+        icon: AdminPanelSettingsIcon,
+        permission: PERMISSIONS.READ_ROLE,
     },
 ];
 

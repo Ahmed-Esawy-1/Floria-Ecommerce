@@ -33,6 +33,12 @@ const Employees = lazy(() => import("./pages/employees/Employees"));
 const CreateEmployee = lazy(() => import("./pages/employees/CreateEmployee"));
 const EditEmployee = lazy(() => import("./pages/employees/EditEmployee"));
 
+const Customers = lazy(() => import("./pages/customers/Customers"));
+const EditCustomer = lazy(() => import("./pages/customers/EditCustomer"));
+
+const Roles = lazy(() => import("./pages/roles/Roles"));
+const CreateRole = lazy(() => import("./pages/roles/CreateRole"));
+
 const TrashPage = lazy(() => import("./pages/TrashPage"));
 
 function App() {
@@ -207,7 +213,7 @@ function App() {
                         />
                     </Route>
 
-                    {/* USERS */}
+                    {/* EMPLOYEES */}
                     <Route path="/employees">
                         <Route
                             index
@@ -240,6 +246,28 @@ function App() {
                             }
                         />
                     </Route>
+
+                    {/* CUSTOMERS */}
+                    <Route
+                        path="/customers"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_CUSTOMER}
+                            >
+                                <Customers />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/customers/:customerId/edit"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.UPDATE_CUSTOMER}
+                            >
+                                <EditCustomer />
+                            </RequirePermission>
+                        }
+                    />
 
                     {/* TRASH */}
                     <Route
@@ -323,6 +351,28 @@ function App() {
                                     backPath="/employees"
                                     type="employee"
                                 />
+                            </RequirePermission>
+                        }
+                    />
+
+                    {/* ROLES */}
+                    <Route
+                        path="/roles"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.READ_ROLE}
+                            >
+                                <Roles />
+                            </RequirePermission>
+                        }
+                    />
+                    <Route
+                        path="/roles/create"
+                        element={
+                            <RequirePermission
+                                permission={PERMISSIONS.CREATE_ROLE}
+                            >
+                                <CreateRole />
                             </RequirePermission>
                         }
                     />
