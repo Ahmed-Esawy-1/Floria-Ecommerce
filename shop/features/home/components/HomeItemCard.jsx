@@ -19,7 +19,7 @@ export default function HomeItemCard({ item, href, rounded = false }) {
                 }`}
             >
                 <Image
-                    src={resolveImageUrl(`${API_URL}${item.imageUrl}`)}
+                    src={resolveImageUrl(item.imageUrl)}
                     alt={`${name} thumbnail`}
                     fill
                     loading="lazy"

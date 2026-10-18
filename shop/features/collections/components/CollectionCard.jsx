@@ -14,7 +14,7 @@ export default async function CollectionCard({ item, queryParam }) {
             className="group relative overflow-hidden rounded-2xl aspect-[4/5] bg-marble border border-gold/20 hover:border-gold/60 transition-all"
         >
             <Image
-                src={resolveImageUrl(`${API_URL}${item.imageUrl}`)}
+                src={resolveImageUrl(item.imageUrl)}
                 alt={`${name} thumbnail`}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

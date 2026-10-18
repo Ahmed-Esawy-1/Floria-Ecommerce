@@ -1,50 +1,43 @@
 package com.ahmedesawy.floria.common.storage;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
+import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class FileStorageService {
 
-   @Value("${file.upload-dir}")
-   private String uploadDir;
+   private final Cloudinary cloudinary;
 
-   // Upload Image
+   // Upload Image: returns the public URL
    public String uploadImage(MultipartFile file, String folderName) {
       try {
-         String folder = uploadDir + "/" + folderName;
-         Path uploadPath = Paths.get(folder);
-
-         if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-         }
-
-         String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-         Files.copy(file.getInputStream(), uploadPath.resolve(fileName));
-
-         return fileName;
+         Map<?, ?> result = cloudinary.uploader().upload(
+               file.getBytes(),
+               ObjectUtils.asMap("folder", "floria/" + folderName, "resource_type", "image"));
+         return (String) result.get("secure_url");
       } catch (Exception e) {
-         throw new RuntimeException(e);
+         throw new RuntimeException("Image upload failed", e);
       }
    }
 
-   // Delete Image
-   public void deleteFile(String path) {
-      if (path == null)
+   // Delete Image: expects the stored Cloudinary URL
+   public void deleteFile(String url) {
+      if (url == null || !url.contains("/upload/"))
          return;
-
       try {
-         Path oldPath = Paths.get(uploadDir, path);
-         Files.deleteIfExists(oldPath);
-
-      } catch (Exception e) {
+         String publicId = url.substring(url.indexOf("/upload/") + 8)
+               .replaceFirst("^v\\d+/", "")
+               .replaceFirst("\\.[^.]+$", "");
+         cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
+      } catch (Exception ignored) {
       }
    }
-
 }
