@@ -33,7 +33,7 @@ export default function HomeView({ categories = [], occasions = [] }) {
                             renderSlide={(o) => (
                                 <HomeItemCard
                                     item={o}
-                                    href={`/occasions/${o.id}`}
+                                    href={`/shop?occasionIds=${o.id}`}
                                 />
                             )}
                         />
@@ -57,7 +57,7 @@ export default function HomeView({ categories = [], occasions = [] }) {
                             renderSlide={(c) => (
                                 <HomeItemCard
                                     item={c}
-                                    href={`/categories/${c.id}`}
+                                    href={`/shop?categoryIds?${c.id}`}
                                     rounded
                                 />
                             )}
