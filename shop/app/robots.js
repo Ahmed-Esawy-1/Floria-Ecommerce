@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/seo/site";
+import { SITE_URL } from "@/lib/config";
 
 export default function robots() {
     return {
