@@ -7,12 +7,14 @@ import { setCredentials } from "@/features/auth/authSlice";
 import { tokenStorage } from "@/lib/api/tokenStorage";
 import { useTranslations } from "next-intl";
 import Spinner from "@/components/loading/Spinner";
+import { BASE } from "@/lib/config";
 
 export default function OAuthCallbackPage() {
     const router = useRouter();
     const params = useSearchParams();
     const dispatch = useDispatch();
     const handled = useRef(false);
+    const t = useTranslations("auth.oauthCallback");
 
     useEffect(() => {
         if (handled.current) return;
@@ -27,15 +29,12 @@ export default function OAuthCallbackPage() {
 
         (async () => {
             try {
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/auth/oauth/exchange`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ code }),
-                        credentials: "include", // needed so the HttpOnly refresh_token cookie is sent
-                    },
-                );
+                const res = await fetch(`${BASE}/auth/oauth/exchange`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ code }),
+                    credentials: "include", // needed so the HttpOnly refresh_token cookie is sent
+                });
 
                 if (!res.ok) throw new Error("Exchange failed");
 
@@ -57,8 +56,6 @@ export default function OAuthCallbackPage() {
         })();
     }, [params, router, dispatch]);
 
-    // --------------------------------------------------------
-    const t = useTranslations("auth.oauthCallback");
     return (
         <div className="min-h-screen flex flex-col items-center justify-center gap-4">
             <Spinner />
