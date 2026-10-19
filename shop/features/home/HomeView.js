@@ -57,7 +57,7 @@ export default function HomeView({ categories = [], occasions = [] }) {
                             renderSlide={(c) => (
                                 <HomeItemCard
                                     item={c}
-                                    href={`/shop?categoryIds?${c.id}`}
+                                    href={`/shop?categoryIds=${c.id}`}
                                     rounded
                                 />
                             )}
