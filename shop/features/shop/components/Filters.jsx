@@ -52,19 +52,19 @@ export default function Filters({
 
             <aside
                 className={`
-                    fixed lg:static inset-0 z-30
+                    fixed lg:static inset-x-0 top-16 bottom-0 z-30
                     w-full sm:w-80 lg:w-64
-                    h-full lg:min-h-screen
+                    lg:h-auto lg:min-h-screen
                     bg-marble-light lg:bg-marble
                     flex flex-col
-                    pt-10 px-4 pb-5
+                    px-4 pb-5 pt-4 lg:pt-10
                     overflow-y-auto
                     transition-transform duration-300
                     ${open ? "translate-x-0" : hiddenClass}
                     lg:translate-x-0
                 `}
             >
-                <div className="mb-8 flex items-center justify-between">
+                <div className="sticky top-0 z-10 -mx-4 px-4 pb-4 pt-0 mb-4 flex items-center justify-between bg-marble-light lg:bg-transparent">
                     <div>
                         <h2 className="font-serif text-2xl text-primary">
                             {t("title")}
