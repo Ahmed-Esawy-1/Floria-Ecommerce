@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, {
+    useState,
+    useEffect,
+    useMemo,
+    useRef,
+    useCallback,
+} from "react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
@@ -34,7 +40,8 @@ const Products = () => {
     const { hasPermission } = useAuth();
 
     // ---- STATE ------------------------------------
-    const [allProducts, setAllProducts] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [totalItems, setTotalItems] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -57,53 +64,46 @@ const Products = () => {
     const columnCount =
         TABLE_HEADER.length + (selectMode ? 1 : 0) + (canManage ? 1 : 0);
 
-    // ---- FETCH PRODUCTS -----------------------------------------------------------------------------------------
-    useEffect(() => {
-        async function getProducts() {
-            try {
-                setLoading(true);
-                const { data } = await api.get("/products");
-                setAllProducts(data.content);
-            } catch (error) {
-                console.error(error);
-                toast.error(t("table.loadError"));
-            } finally {
-                setLoading(false);
+    // ---- FETCH PRODUCTS  -----------------
+    const fetchProducts = useCallback(async () => {
+        try {
+            setLoading(true);
+            const { data } = await api.get("/products", {
+                params: {
+                    page: currentPage - 1,
+                    size: ITEMS_PER_PAGE,
+                    search: searchQuery.trim() || undefined,
+                },
+            });
+
+            // If the current page became empty (e.g. last item deleted), go back one page
+            if (data.content.length === 0 && currentPage > 1) {
+                setCurrentPage((p) => p - 1);
+                return;
             }
+
+            setProducts(data.content);
+            setTotalItems(data.totalElements);
+        } catch (error) {
+            console.error(error);
+            toast.error(t("table.loadError"));
+        } finally {
+            setLoading(false);
         }
-        getProducts();
-    }, [t]);
+    }, [currentPage, searchQuery, t]);
+
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts]);
 
     // Reset to Page 1 When Search Changes
     useEffect(() => {
         setCurrentPage(1);
     }, [searchQuery]);
 
-    // ---- FILTER ---------------------------------------------------------------------
-    const filteredProducts = useMemo(() => {
-        if (!searchQuery.trim()) return allProducts;
-        const q = searchQuery.toLowerCase();
-        return allProducts.filter(
-            (p) =>
-                p.nameEn.toLowerCase().includes(q) ||
-                p.nameAr.toLowerCase().includes(q),
-        );
-    }, [allProducts, searchQuery]);
-
-    const currentProducts = useMemo(() => {
-        const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-        const endIdx = startIdx + ITEMS_PER_PAGE;
-        return filteredProducts.slice(startIdx, endIdx);
-    }, [filteredProducts, currentPage]);
-
     const startIndex =
-        filteredProducts.length === 0
-            ? 0
-            : (currentPage - 1) * ITEMS_PER_PAGE + 1;
-    const endIndex = Math.min(
-        currentPage * ITEMS_PER_PAGE,
-        filteredProducts.length,
-    );
+        totalItems === 0 ? 0 : (currentPage - 1) * ITEMS_PER_PAGE + 1;
+    const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, totalItems);
 
     // Clear Selection when (page | search) Change
     useEffect(() => {
@@ -111,10 +111,7 @@ const Products = () => {
     }, [currentPage, searchQuery]);
 
     // ---- SELECTION HELPERS -----------------------------------------------
-    const currentPageIds = useMemo(
-        () => currentProducts.map((p) => p.id),
-        [currentProducts],
-    );
+    const currentPageIds = useMemo(() => products.map((p) => p.id), [products]);
 
     const allOnPageSelected =
         currentPageIds.length > 0 &&
@@ -154,25 +151,6 @@ const Products = () => {
         setSelectedIds(new Set());
     };
 
-    const recomputeCurrentPage = (updatedList) => {
-        const newFilteredLength = searchQuery.trim()
-            ? updatedList.filter(
-                  (p) =>
-                      p.nameEn
-                          .toLowerCase()
-                          .includes(searchQuery.toLowerCase()) ||
-                      p.nameAr
-                          .toLowerCase()
-                          .includes(searchQuery.toLowerCase()),
-              ).length
-            : updatedList.length;
-
-        const newTotalPages = Math.ceil(newFilteredLength / ITEMS_PER_PAGE);
-        if (currentPage > newTotalPages) {
-            setCurrentPage(newTotalPages || 1);
-        }
-    };
-
     // ---- DELETE ----------------------------------------------------------------------------
     async function handleDeleteProduct() {
         if (!deleteProduct) return;
@@ -182,12 +160,7 @@ const Products = () => {
 
         try {
             await api.delete(`/product/delete/${deleteProduct.id}`);
-
-            setAllProducts((prev) => {
-                const updated = prev.filter((p) => p.id !== deleteProduct.id);
-                recomputeCurrentPage(updated);
-                return updated;
-            });
+            toast.success(t("toast.moveToTrashSuccess", { name: productName }));
 
             setSelectedIds((prev) => {
                 const next = new Set(prev);
@@ -195,7 +168,7 @@ const Products = () => {
                 return next;
             });
 
-            toast.success(t("toast.moveToTrashSuccess", { name: productName }));
+            await fetchProducts();
         } catch (error) {
             toast.error(t("toast.moveToTrashError", { name: productName }));
         } finally {
@@ -212,12 +185,6 @@ const Products = () => {
         try {
             await api.delete("/products/delete/bulk", { data: ids });
 
-            setAllProducts((prev) => {
-                const updated = prev.filter((p) => !selectedIds.has(p.id));
-                recomputeCurrentPage(updated);
-                return updated;
-            });
-
             toast.success(
                 t(
                     ids.length > 1
@@ -227,6 +194,7 @@ const Products = () => {
                 ),
             );
             setSelectedIds(new Set());
+            await fetchProducts();
         } catch (error) {
             toast.error(t("toast.bulkMoveToTrashError"));
         } finally {
@@ -294,12 +262,12 @@ const Products = () => {
 
                     <div className="flex flex-wrap items-center gap-2">
                         <span className="text-sm text-on-surface-variant sm:mr-2">
-                            {filteredProducts.length === 0
+                            {totalItems === 0
                                 ? t("noResults")
                                 : t("showing", {
                                       start: startIndex,
                                       end: endIndex,
-                                      count: filteredProducts.length,
+                                      count: totalItems,
                                   })}{" "}
                             {t(searchQuery.trim() ? "results" : "products")}
                         </span>
@@ -381,7 +349,7 @@ const Products = () => {
                             </thead>
                             <tbody className="divide-y divide-outline-variant">
                                 {/* NO PRODUCTS */}
-                                {currentProducts.length === 0 ? (
+                                {products.length === 0 ? (
                                     <tr>
                                         <td
                                             colSpan={columnCount}
@@ -410,7 +378,7 @@ const Products = () => {
                                     </tr>
                                 ) : (
                                     // PRODUCTS
-                                    currentProducts.map((product) => (
+                                    products.map((product) => (
                                         <tr
                                             className={`hover:bg-surface-container-low transition-colors ${
                                                 selectedIds.has(product.id)
@@ -532,7 +500,7 @@ const Products = () => {
                     maxVisiblePages={MAX_VISIBLE_PAGES}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
-                    totalItems={filteredProducts.length}
+                    totalItems={totalItems}
                     loading={loading}
                 />
             </div>
