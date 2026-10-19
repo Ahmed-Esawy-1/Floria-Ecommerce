@@ -59,16 +59,17 @@ export default function SignupView() {
     const validate = () => {
         const next = { ...EMPTY_ERRORS };
 
-        if (!form.userName.trim()) next.userName = t("userNameRequired");
+        if (!form.userName.trim()) next.userName = t("errors.userNameRequired");
         if (!EMAIL_REGEX.test(form.email.trim()))
-            next.email = t("emailInvalid");
+            next.email = t("errors.emailInvalid");
 
-        if (form.password.length < 8) next.password = t("passwordTooShort");
+        if (form.password.length < 8)
+            next.password = t("errors.passwordTooShort");
         else if (!PASSWORD_REGEX.test(form.password))
-            next.password = t("passwordPattern");
+            next.password = t("errors.passwordPattern");
 
         if (form.password && form.confirmPassword !== form.password) {
-            next.confirmPassword = t("passwordMismatch");
+            next.confirmPassword = t("errors.passwordMismatch");
         }
 
         setError(next);
@@ -92,7 +93,7 @@ export default function SignupView() {
         } catch (err) {
             const message =
                 err?.status === 409
-                    ? t("emailAlreadyExists")
+                    ? t("errors.emailAlreadyExists")
                     : err?.data?.message ||
                       getErrorMessage(t("errors.genericError"));
             setError((prev) => ({ ...prev, general: message }));
