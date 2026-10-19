@@ -45,6 +45,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SectionService {
 
+    private static final String SHOP_CACHE = "shopSections";
     private static final int MAX_PRODUCTS = 15;
     private static final int MIN_PRODUCTS = 5;
 
@@ -80,7 +81,7 @@ public class SectionService {
     }
 
     // ---- SHOP --------------------------------------------
-    @Cacheable(value = "shopSections", key = "'summaries'")
+    @Cacheable(value = SHOP_CACHE, key = "'summaries'")
     @Transactional(readOnly = true)
     public List<SectionSummaryResponse> getSectionSummaries() {
 
@@ -98,7 +99,6 @@ public class SectionService {
                 .toList();
     }
 
-    @CacheEvict(value = "shopSections", allEntries = true)
     @Transactional(readOnly = true)
     public List<ProductSummaryResponse> getSectionProducts(Long id) {
         SectionType type = sectionRepository.findTypeById(id)
@@ -141,6 +141,7 @@ public class SectionService {
     }
 
     // ---- CREATE ----------------------------------------
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
     @Transactional
     public String addSection(SectionRequest req) {
 
@@ -179,7 +180,7 @@ public class SectionService {
             throw new BadRequestException("Duplicate products in section: " + duplicates);
         }
 
-        // Each product must be exist
+        // Each product must exist
         Set<Long> existingIds = productRepository.findExistingIds(uniqueIds);
         if (existingIds.size() != uniqueIds.size()) {
             Set<Long> missing = new LinkedHashSet<>(uniqueIds);
@@ -203,6 +204,7 @@ public class SectionService {
     }
 
     // ---- UPDATE -------------------------------------------------------------
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
     @Transactional
     public SectionResponse updateSection(Long id, SectionUpdateRequest req) {
         Section section = sectionRepository.findByIdOrThrow(id);
@@ -253,7 +255,7 @@ public class SectionService {
                 throw new BadRequestException("Duplicate products in section: " + duplicates);
             }
 
-            // Each product must be exist
+            // Each product must exist
             Set<Long> existingIds = productRepository.findExistingIds(uniqueIds);
             if (existingIds.size() != uniqueIds.size()) {
                 Set<Long> missing = new LinkedHashSet<>(uniqueIds);
@@ -289,38 +291,45 @@ public class SectionService {
         return toResponse(saved);
     }
 
-    // ---- SINGLE OPERATIONS
-    // ---------------------------------------------------------------------
+    // ---- SINGLE OPERATIONS ------------------------------------------
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
+    @Transactional
     public void restore(Long id) {
         Section section = sectionRepository.findByIdOrThrow(id);
         section.setDeletedAt(null);
         sectionRepository.save(section);
     }
 
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
+    @Transactional
     public void softDelete(Long id) {
         Section section = sectionRepository.findByIdOrThrow(id);
         section.setDeletedAt(LocalDateTime.now());
         sectionRepository.save(section);
     }
 
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
+    @Transactional
     public void hardDelete(Long id) {
         if (!sectionRepository.existsById(id))
             throw new EntityNotFoundException("Section Not Found.");
         sectionRepository.deleteById(id);
     }
 
-    // ---- BULK OPERATIONS
-    // ---------------------------------------------------------------------
+    // ---- BULK OPERATIONS ---------------------------------------------------
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
     @Transactional
     public void restoreBulk(List<Long> ids) {
         sectionRepository.restoreBulk(ids);
     }
 
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
     @Transactional
     public void softDeleteBulk(List<Long> ids) {
         sectionRepository.softDeleteBulk(ids, LocalDateTime.now());
     }
 
+    @CacheEvict(value = SHOP_CACHE, allEntries = true)
     @Transactional
     public void hardDeleteBulk(List<Long> ids) {
         List<Section> sections = sectionRepository.findAllById(ids);
@@ -329,8 +338,7 @@ public class SectionService {
         sectionRepository.deleteAll(sections);
     }
 
-    // ---- HELPERS
-    // -------------------------------------------------------------------------------------
+    // ---- HELPERS -------------------------------------------------------------
     public SectionResponse toResponse(Section section) {
         Map<Long, Product> productMap = buildProductMap(List.of(section));
         return SectionMapper.toResponse(section, productMap);
