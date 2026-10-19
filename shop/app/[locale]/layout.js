@@ -36,6 +36,10 @@ export async function generateMetadata({ params }) {
             icon: "/images/logo.webp",
         },
 
+        verification: {
+            google: "fjbbZTAImv1c4b1sp0G8AzZyTOBYKWqO5qC4-kPLuss",
+        },
+
         openGraph: {
             siteName,
             type: "website",
