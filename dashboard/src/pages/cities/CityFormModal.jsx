@@ -216,7 +216,7 @@ const CityFormModal = ({
                         <label className="text-sm font-medium text-on-surface">
                             {t("form.deliveryPrice")}
                         </label>
-                        <div className="flex gap-3">
+                        <div className="flex items-stretch gap-2">
                             <input
                                 type="number"
                                 name="deliveryPrice"
@@ -225,9 +225,9 @@ const CityFormModal = ({
                                 min="0"
                                 value={city.deliveryPrice}
                                 onChange={handleInputChange}
-                                className="flex-1 h-12 px-4 rounded-xl border border-outline bg-surface-container-lowest outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                                className="w-full min-w-0 h-12 px-4 rounded-xl border border-outline bg-surface-container-lowest outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
                             />
-                            <div className="h-12 px-4 rounded-xl border border-outline bg-surface-container-lowest flex items-center justify-center text-sm font-medium text-on-surface-variant min-w-16">
+                            <div className="h-12 px-4 shrink-0 rounded-xl border border-outline bg-surface-container-lowest flex items-center justify-center text-sm font-medium text-on-surface-variant">
                                 EGP
                             </div>
                         </div>
