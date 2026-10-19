@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
+import Loading from "@/components/Loading";
 
 import InventoryIcon from "@mui/icons-material/Inventory";
 import MailIcon from "@mui/icons-material/Mail";
@@ -18,12 +19,19 @@ const Login = () => {
     const { t } = useTranslation("auth");
     const { t: tCommon } = useTranslation("common");
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login, isAuthenticated, isLoading } = useAuth();
 
     // ---- STATE ------------------------------------------------
     const [userInfo, setUserInfo] = useState(DEFAULT_USER_INFO);
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // ---- REDIRECT IF ALREADY LOGGED IN ------------------------
+    useEffect(() => {
+        if (!isLoading && isAuthenticated) {
+            navigate("/dashboard", { replace: true });
+        }
+    }, [isLoading, isAuthenticated, navigate]);
 
     // ---- INPUTS CHANGE -----------------------------------
     function handleInputChange(e) {
@@ -59,6 +67,9 @@ const Login = () => {
             setIsSubmitting(false);
         }
     }
+
+    // Avoid flashing the form while checking auth or redirecting
+    if (isLoading || isAuthenticated) return <Loading />;
 
     return (
         <div className="bg-surface-container-low min-h-screen flex items-center justify-center p-6">
