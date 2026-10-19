@@ -15,8 +15,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
-import Can from "@/components/Can";
 import { PERMISSIONS } from "@/constants/permissions";
 
 const TABLE_HEADER = ["city", "nameEn", "nameAr", "deliveryPrice", "available"];
@@ -47,7 +45,8 @@ const Cities = () => {
         async function getCities() {
             try {
                 const { data } = await api.get("cities");
-                setCities(data);
+                setCities(Array.isArray(data) ? data : []);
+                setCities((prev) => [data, ...prev]);
             } catch (err) {
                 console.error(err);
                 toast.error(t("toast.fetchError"));
@@ -58,11 +57,12 @@ const Cities = () => {
 
     // ---- FILTER -------------------------------------------------------------------------------
     const filtered = useMemo(() => {
-        const q = search.toLowerCase();
+        const q = search.trim().toLowerCase();
+        if (!q) return cities;
         return cities.filter(
             (c) =>
-                c.nameEn.toLowerCase().includes(q) ||
-                c.nameAr.toLowerCase().includes(q),
+                (c.nameEn ?? "").toLowerCase().includes(q) ||
+                (c.nameAr ?? "").toLowerCase().includes(q),
         );
     }, [search, cities]);
 
@@ -77,21 +77,20 @@ const Cities = () => {
             toast.error(
                 error?.response?.data?.message || t("toast.createError"),
             );
+            throw error;
         }
     };
 
     const handleEdit = async (form) => {
         try {
-            const { data } = await api.put(`city/update/${editData.id}`, form);
-            setCities((prev) => [
-                data,
-                ...prev.filter((c) => c.id !== data.id),
-            ]);
+            const { data } = await api.put(`/city/update/${editData.id}`, form);
+            setCities((prev) => prev.map((c) => (c.id === data.id ? data : c)));
             toast.success(t("toast.updateSuccess"));
             setEditData(null);
             setModalOpen(false);
         } catch (err) {
             toast.error(err?.response?.data?.message || t("toast.updateError"));
+            throw err;
         }
     };
 

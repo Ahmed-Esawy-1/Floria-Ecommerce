@@ -70,13 +70,12 @@ const CityFormModal = ({
     }
 
     // ---- DISABLED --------------------------------------------------------
-
     const isUnchanged = useMemo(() => {
         if (!editData) return false;
         return (
             city.nameEn === (editData.nameEn || "") &&
             city.nameAr === (editData.nameAr || "") &&
-            city.deliveryPrice === (editData.deliveryPrice || "") &&
+            Number(city.deliveryPrice) === Number(editData.deliveryPrice) &&
             city.available === (editData.available ?? true)
         );
     }, [city, editData]);
