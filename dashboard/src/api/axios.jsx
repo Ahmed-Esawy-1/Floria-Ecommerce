@@ -18,7 +18,6 @@ export function readStoredTokens() {
 // ---- SAVE TOKENS ----------------------------------------
 export function persistTokens(tokens, rememberMe) {
     const value = JSON.stringify(tokens);
-    console.log("Tokens => ", value);
     if (rememberMe) {
         localStorage.setItem(TOKENS_KEY, value);
         sessionStorage.removeItem(TOKENS_KEY);
