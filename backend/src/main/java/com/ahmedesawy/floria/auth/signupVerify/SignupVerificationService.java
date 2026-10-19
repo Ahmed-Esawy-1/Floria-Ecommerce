@@ -19,7 +19,9 @@ import com.ahmedesawy.floria.user.employee.Employee;
 import com.ahmedesawy.floria.user.employee.EmployeeRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SignupVerificationService {
@@ -150,7 +152,12 @@ public class SignupVerificationService {
         message.setTo(toEmail);
         message.setSubject("Verify your email");
         message.setText("Your verification code is: " + code + "\nIt expires in 2 minutes.");
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        } catch (Exception e) {
+            log.error("MAIL FAILED", e);
+            throw e;
+        }
     }
 
     private long registerFailedAttempt(String codeKey, String attemptsKey) {
