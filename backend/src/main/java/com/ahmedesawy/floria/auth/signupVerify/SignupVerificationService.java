@@ -5,13 +5,12 @@ import java.security.MessageDigest;
 import java.time.Duration;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
 import com.ahmedesawy.floria.auth.AccountIdentity;
 import com.ahmedesawy.floria.common.exception.NotFoundException;
+import com.ahmedesawy.floria.common.mail.BrevoMailService;
 import com.ahmedesawy.floria.common.util.CodeGenerator;
 import com.ahmedesawy.floria.user.customer.Customer;
 import com.ahmedesawy.floria.user.customer.CustomerRepository;
@@ -29,7 +28,7 @@ public class SignupVerificationService {
     private final CustomerRepository customerRepository;
     private final EmployeeRepository employeeRepository;
     private final StringRedisTemplate redisTemplate;
-    private final JavaMailSender mailSender;
+    private final BrevoMailService brevoMailService;
 
     private static final Duration CODE_TTL = Duration.ofMinutes(2);
     private static final Duration RESEND_COOLDOWN = Duration.ofSeconds(60);
@@ -148,16 +147,10 @@ public class SignupVerificationService {
     }
 
     private void sendVerificationEmail(String toEmail, String code) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(toEmail);
-        message.setSubject("Verify your email");
-        message.setText("Your verification code is: " + code + "\nIt expires in 2 minutes.");
-        try {
-            mailSender.send(message);
-        } catch (Exception e) {
-            log.error("MAIL FAILED", e);
-            throw e;
-        }
+        brevoMailService.send(
+                toEmail,
+                "Verify your email",
+                "Your verification code is: " + code + "\nIt expires in 2 minutes.");
     }
 
     private long registerFailedAttempt(String codeKey, String attemptsKey) {
