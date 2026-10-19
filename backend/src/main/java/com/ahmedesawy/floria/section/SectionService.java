@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -50,8 +51,7 @@ public class SectionService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
 
-    // ---- QUERIES
-    // -----------------------------------------------------------------------------------------
+    // ---- QUERIES --------------------------------------------
     public List<SectionResponse> getDashboardSections() {
         List<Section> sections = sectionRepository
                 .findAllByDeletedAtIsNullAndTypeOrderByUpdatedAtDesc(SectionType.MANUAL);
@@ -77,80 +77,66 @@ public class SectionService {
                 .toList();
     }
 
-    // ---- SHOP
-    // -------------------------------------------------------------------------------
-    @Transactional
+    // ---- SHOP --------------------------------------------
+    @Transactional(readOnly = true)
     public List<SectionSummaryResponse> getSectionSummaries() {
-        List<SectionSummaryResponse> ordered = new ArrayList<>();
 
-        sectionRepository.findByTypeAndDeletedAtIsNull(SectionType.BEST_SELLER)
-                .ifPresent(s -> ordered.add(SectionMapper.toSummaryResponse(s)));
-
-        List<SectionSummaryResponse> others = sectionRepository
-                .findAllByDeletedAtIsNullAndTypeOrderByUpdatedAtDesc(SectionType.MANUAL)
+        Map<SectionType, List<Section>> byType = sectionRepository
+                .findAllByDeletedAtIsNullOrderByUpdatedAtDesc()
                 .stream()
+                .collect(Collectors.groupingBy(Section::getType));
+
+        return Stream.of(
+                byType.getOrDefault(SectionType.BEST_SELLER, List.of()).stream().limit(1),
+                byType.getOrDefault(SectionType.MANUAL, List.of()).stream(),
+                byType.getOrDefault(SectionType.RELEASE, List.of()).stream().limit(1))
+                .flatMap(s -> s)
                 .map(SectionMapper::toSummaryResponse)
                 .toList();
-        ordered.addAll(others);
-
-        sectionRepository.findByTypeAndDeletedAtIsNull(SectionType.RELEASE)
-                .ifPresent(s -> ordered.add(SectionMapper.toSummaryResponse(s)));
-
-        return ordered;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<ProductSummaryResponse> getSectionProducts(Long id) {
-        Section section = sectionRepository.findByIdOrThrow(id);
+        SectionType type = sectionRepository.findTypeById(id)
+                .orElseThrow(() -> new NotFoundException("Section not found"));
 
-        // RELEASE SECTION
-        if (section.getType() == SectionType.RELEASE) {
-            return productRepository
+        return switch (type) {
+            case RELEASE -> productRepository
                     .findAllByOrderByCreatedAtDesc(PageRequest.of(0, MAX_PRODUCTS))
                     .stream()
                     .map(ProductMapper::toSummaryResponse)
                     .toList();
-        }
 
-        // BESTSELLER SECTION
-        if (section.getType() == SectionType.BEST_SELLER) {
-            List<Long> topIds = orderRepository.findProductsByOrderCount()
+            case BEST_SELLER -> {
+                List<Long> topIds = orderRepository
+                        .findProductsByOrderCount(PageRequest.of(0, MAX_PRODUCTS))
+                        .stream()
+                        .map(row -> (Long) row[0])
+                        .toList();
+
+                if (topIds.isEmpty())
+                    yield List.of();
+
+                Map<Long, Product> productMap = productRepository.findAllById(topIds)
+                        .stream()
+                        .collect(Collectors.toMap(Product::getId, Function.identity()));
+
+                yield topIds.stream()
+                        .map(productMap::get)
+                        .filter(Objects::nonNull)
+                        .map(ProductMapper::toSummaryResponse)
+                        .toList();
+            }
+
+            case MANUAL -> sectionProductRepository
+                    .findActiveProductsBySectionId(id)
                     .stream()
-                    .limit(MAX_PRODUCTS)
-                    .map(row -> (Long) row[0])
-                    .toList();
-
-            Map<Long, Product> productMap = productRepository.findAllById(topIds)
-                    .stream()
-                    .collect(Collectors.toMap(Product::getId, Function.identity()));
-
-            return topIds.stream()
-                    .map(productMap::get)
-                    .filter(Objects::nonNull)
                     .map(ProductMapper::toSummaryResponse)
                     .toList();
-        }
-
-        // MANUAL SECTION
-        List<SectionProduct> sectionProducts = sectionProductRepository.findBySectionIdOrderBySortOrderAsc(id);
-
-        List<Long> productIds = sectionProducts.stream()
-                .map(SectionProduct::getProductId)
-                .toList();
-
-        Map<Long, Product> productMap = productRepository.findAllById(productIds)
-                .stream()
-                .collect(Collectors.toMap(Product::getId, Function.identity()));
-
-        return sectionProducts.stream()
-                .map(sp -> productMap.get(sp.getProductId()))
-                .filter(Objects::nonNull)
-                .map(ProductMapper::toSummaryResponse)
-                .toList();
+        };
     }
 
-    // ---- CREATE
-    // -------------------------------------------------------------------------------------
+    // ---- CREATE ----------------------------------------
     @Transactional
     public String addSection(SectionRequest req) {
 

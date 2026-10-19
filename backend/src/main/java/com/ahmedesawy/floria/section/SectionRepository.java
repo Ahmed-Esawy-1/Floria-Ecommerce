@@ -24,6 +24,9 @@ public interface SectionRepository extends FindOrThrowRepository<Section, Long> 
 
    Optional<Section> findByType(SectionType type);
 
+   @Query("select s.type from Section s where s.id = :id")
+   Optional<SectionType> findTypeById(@Param("id") Long id);
+
    Optional<Section> findByTypeAndDeletedAtIsNull(SectionType type);
 
    // Active

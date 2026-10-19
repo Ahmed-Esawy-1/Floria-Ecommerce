@@ -28,12 +28,12 @@ public interface OrderRepository extends FindOrThrowRepository<Order, Long> {
     List<Order> findTop5ByOrderByCreatedAtDesc();
 
     @Query("""
-               SELECT oi.product.id, COUNT(oi.product.id) as orderCount
-               FROM OrderItem oi
-               GROUP BY oi.product.id
-               ORDER BY orderCount DESC
+            SELECT oi.product.id, COUNT(oi.product.id) as orderCount
+            FROM OrderItem oi
+            GROUP BY oi.product.id
+            ORDER BY orderCount DESC
             """)
-    List<Object[]> findProductsByOrderCount();
+    List<Object[]> findProductsByOrderCount(Pageable pageable);
 
     // Top 5 Most Ordered Products (Top Products)
     @Query("""
