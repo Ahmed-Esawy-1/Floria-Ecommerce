@@ -165,7 +165,7 @@ const ProductForm = ({ mode, productId, onSuccess }) => {
                     </label>
 
                     <div
-                        onClick={requestToggle}
+                        onClick={() => requestToggle()}
                         className="flex items-center gap-3 p-4 mb-4 border border-outline-variant rounded-xl bg-surface-container-lowest cursor-pointer select-none hover:border-primary transition-all"
                     >
                         <div

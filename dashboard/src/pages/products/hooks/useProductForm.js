@@ -211,7 +211,7 @@ export function useProductForm({ mode, productId, onSuccess }) {
 
     // ---- MODE TOGGLE --------------------------------------------------------------------------
 
-    const requestToggle = (setModeModalFn = setModeModal) => {
+    const requestToggle = () => {
         const targetMode = hasColors ? "general" : "color";
         const itemCount = hasColors
             ? productColors.length
@@ -222,7 +222,7 @@ export function useProductForm({ mode, productId, onSuccess }) {
             setErrors({});
             return;
         }
-        setModeModalFn({ open: true, targetMode });
+        setModeModal({ open: true, targetMode });
     };
 
     const confirmToggle = () => {
