@@ -132,11 +132,11 @@ const Sidebar = ({ open, onClose }) => {
 
             <aside
                 className={`
-               fixed ltr:left-0 rtl:right-0 top-0 z-50 h-full flex flex-col
-               bg-surface-container w-[280px] border-r border-surface-variant shadow-sm
-               transition-transform duration-300 ease-in-out
-               ${open ? "translate-x-0" : "ltr:-translate-x-full rtl:translate-x-full"}
-               lg:translate-x-0
+                fixed ltr:left-0 rtl:right-0 top-0 z-50 h-full flex flex-col overflow-hidden
+                bg-surface-container w-[280px] border-r border-surface-variant shadow-sm
+                transition-transform duration-300 ease-in-out
+                ${open ? "translate-x-0" : "ltr:-translate-x-full rtl:translate-x-full"}
+                lg:translate-x-0
             `}
             >
                 {/* Close button - ( Mobile ) */}
@@ -147,7 +147,7 @@ const Sidebar = ({ open, onClose }) => {
                     <CloseIcon />
                 </button>
 
-                <div className="px-6 py-8">
+                <div className="flex-1 min-h-0 overflow-y-auto px-6 py-8">
                     <div className="flex items-center gap-3 mb-8">
                         <div className="w-10 h-10 flex items-center justify-center text-white bg-primary-container rounded-lg">
                             <Inventory2Icon />
