@@ -6,11 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
-import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.ahmedesawy.floria.common.mail.BrevoMailService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,29 +29,25 @@ public class ContactService {
             "corporate", "Corporate Partnership",
             "press", "Press & Media");
 
-    private final JavaMailSender mailSender;
+    private final BrevoMailService mailService;
     private final StringRedisTemplate redisTemplate;
 
     @Value("${contact.recipient}")
     private String recipient;
-    @Value("${mail.username}")
-    private String fromAddress;
 
     public void send(ContactRequest request, String ip) {
         String rateKey = "contact-rate:" + ip;
         enforceCooldown(rateKey);
 
-        SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setFrom(fromAddress);
-        mail.setTo(recipient);
-
-        mail.setReplyTo(clean(request.getEmail()));
-        mail.setSubject(clean("[Floria Contact] " + SUBJECT_LABELS.get(request.getSubject())));
-        mail.setText(buildBody(request));
+        String subject = clean("[Floria Contact] " + SUBJECT_LABELS.get(request.getSubject()));
 
         try {
-            mailSender.send(mail);
-        } catch (MailException ex) {
+            mailService.send(
+                    recipient,
+                    subject,
+                    buildBody(request),
+                    clean(request.getEmail()));
+        } catch (RestClientException ex) {
             redisTemplate.delete(rateKey);
             log.error("Failed to send contact email", ex);
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE,
