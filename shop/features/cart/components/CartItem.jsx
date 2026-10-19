@@ -4,8 +4,6 @@ import { memo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
-import { Minus, Plus, Trash2 } from "lucide-react";
-
 import { remove, increase, decrease } from "@/features/cart/cartSlice";
 import {
     MAX_CART_QUANTITY,
@@ -13,6 +11,9 @@ import {
 } from "@/features/cart/constants";
 import { useFormatNumber } from "@/hooks/useFormatNumber";
 import { getPriceInfo } from "@/utils/price";
+import { resolveImageUrl } from "@/utils/resolveImageUrl";
+
+import { Minus, Plus, Trash2 } from "lucide-react";
 
 const QTY_BUTTON_BASE =
     "flex h-8 w-8 items-center justify-center rounded-md transition-all shadow-sm";
@@ -42,7 +43,7 @@ const CartItem = memo(({ item }) => {
             {/* IMAGE */}
             <div className="aspect-square w-full md:w-40 min-h-40 max-h-60 shrink-0 relative rounded-xl overflow-hidden">
                 <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${item.imageUrl}`}
+                    src={resolveImageUrl(item.imageUrl)}
                     alt={`${name} thumbnail`}
                     fill
                     className="object-cover"
