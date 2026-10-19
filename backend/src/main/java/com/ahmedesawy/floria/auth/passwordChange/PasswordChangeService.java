@@ -4,8 +4,6 @@ import java.time.Duration;
 import java.util.UUID;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.ahmedesawy.floria.auth.AccountIdentity;
 import com.ahmedesawy.floria.auth.AuthService;
 import com.ahmedesawy.floria.common.exception.BadRequestException;
+import com.ahmedesawy.floria.common.mail.BrevoMailService;
 import com.ahmedesawy.floria.common.util.CodeGenerator;
 import com.ahmedesawy.floria.user.Account;
 import com.ahmedesawy.floria.user.AuthProvider;
@@ -31,13 +30,14 @@ import tools.jackson.databind.json.JsonMapper;
 public class PasswordChangeService {
 
     private static final Duration CODE_TTL = Duration.ofMinutes(2);
+    private static final int MAX_ATTEMPTS = 5;
 
     private final CustomerRepository customerRepository;
     private final EmployeeRepository employeeRepository;
     private final PasswordEncoder passwordEncoder;
     private final StringRedisTemplate redisTemplate;
     private final JsonMapper jsonMapper;
-    private final JavaMailSender mailSender;
+    private final BrevoMailService brevoMailService;
     private final AuthService authService;
 
     public void requestPasswordChange(ChangePasswordRequest request, AccountIdentity identity) {
@@ -64,15 +64,26 @@ public class PasswordChangeService {
         }
 
         redisTemplate.opsForValue().set(codeKey(identity), code, CODE_TTL);
+        redisTemplate.delete(attemptsKey(identity)); // reset attempts on a new request
 
-        sendVerificationEmail(identity.email(), code);
+        try {
+            sendVerificationEmail(identity.email(), code);
+        } catch (RuntimeException e) {
+            clearPending(identity);
+            throw new IllegalStateException("Failed to send verification email", e);
+        }
     }
 
     public void confirmPasswordChange(String code, AccountIdentity identity, HttpServletRequest request) {
         Account account = loadLocalAccount(identity);
 
         String storedCode = redisTemplate.opsForValue().get(codeKey(identity));
-        if (storedCode == null || !storedCode.equals(code)) {
+        if (storedCode == null) {
+            throw new BadCredentialsException("Invalid or expired verification code");
+        }
+
+        if (!storedCode.equals(code)) {
+            registerFailedAttempt(identity);
             throw new BadCredentialsException("Invalid or expired verification code");
         }
 
@@ -95,9 +106,7 @@ public class PasswordChangeService {
             case EMPLOYEE -> employeeRepository.save((Employee) account);
         }
 
-        // Clean up
-        redisTemplate.delete(codeKey(identity));
-        redisTemplate.delete(redisKey(identity));
+        clearPending(identity);
 
         authService.logout(request, null);
     }
@@ -118,6 +127,26 @@ public class PasswordChangeService {
         };
     }
 
+    private void registerFailedAttempt(AccountIdentity identity) {
+        String key = attemptsKey(identity);
+        Long attempts = redisTemplate.opsForValue().increment(key);
+
+        if (attempts != null && attempts == 1) {
+            redisTemplate.expire(key, CODE_TTL);
+        }
+
+        if (attempts != null && attempts >= MAX_ATTEMPTS) {
+            clearPending(identity);
+            throw new BadCredentialsException("Too many attempts. Please request a new code");
+        }
+    }
+
+    private void clearPending(AccountIdentity identity) {
+        redisTemplate.delete(codeKey(identity));
+        redisTemplate.delete(redisKey(identity));
+        redisTemplate.delete(attemptsKey(identity));
+    }
+
     private String redisKey(AccountIdentity identity) {
         return "password-change:pending:%s:%s".formatted(identity.type(), identity.id());
     }
@@ -126,12 +155,15 @@ public class PasswordChangeService {
         return "password-change:code:%s:%s".formatted(identity.type(), identity.id());
     }
 
+    private String attemptsKey(AccountIdentity identity) {
+        return "password-change:attempts:%s:%s".formatted(identity.type(), identity.id());
+    }
+
     private void sendVerificationEmail(String toEmail, String code) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(toEmail);
-        message.setSubject("Confirm your password change");
-        message.setText("Your verification code is: " + code + "\nIt expires in 2 minutes.");
-        mailSender.send(message);
+        brevoMailService.send(
+                toEmail,
+                "Confirm your password change",
+                "Your verification code is: " + code + "\nIt expires in 2 minutes.");
     }
 
     private record PendingPasswordChange(UUID accountId, AccountIdentity.AccountType type, String newPasswordHash) {
