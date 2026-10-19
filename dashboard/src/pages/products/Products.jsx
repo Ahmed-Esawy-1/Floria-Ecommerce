@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
-import { BASE_URL } from "@/api/config";
 import api from "@/api/axios";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -12,6 +11,7 @@ import DeletedModal from "@/components/DeleteModal";
 import HoverRevealText from "@/components/HoverRevealText";
 import Can from "@/components/Can";
 import { PERMISSIONS } from "@/constants/permissions";
+import { resolveImageUrl } from "@/helpers/resolveImageUrl";
 
 import InventoryIcon from "@mui/icons-material/Inventory";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
