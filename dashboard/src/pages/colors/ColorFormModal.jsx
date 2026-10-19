@@ -123,7 +123,7 @@ const ColorFormModal = ({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
-            <div className="w-full max-w-md rounded-3xl border border-outline bg-surface-container-low shadow-xl overflow-hidden">
+            <div className="w-full max-w-md mx-4 rounded-3xl border border-outline bg-surface-container-low shadow-xl overflow-hidden">
                 {/* HEADER */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-outline bg-surface-container-low">
                     <div>
@@ -226,7 +226,7 @@ const ColorFormModal = ({
                         <label className="text-sm font-medium text-on-surface">
                             Hex Code
                         </label>
-                        <div className="flex gap-3">
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <input
                                 type="text"
                                 name="hexCode"
@@ -234,11 +234,11 @@ const ColorFormModal = ({
                                 maxLength={7}
                                 onChange={handleInputChange}
                                 placeholder="#000000"
-                                className="flex-1 h-12 px-4 rounded-xl border bg-surface-container-lowest outline-none transition-all border-outline focus:border-primary"
+                                className="w-full sm:flex-1 h-12 px-4 rounded-xl border bg-surface-container-lowest outline-none transition-all border-outline focus:border-primary"
                             />
 
                             <label
-                                className="w-12 h-12 rounded-xl overflow-hidden border border-outline cursor-pointer shadow-sm"
+                                className="w-full sm:w-12 h-12 rounded-xl overflow-hidden border border-outline cursor-pointer shadow-sm"
                                 style={{
                                     background: isValidHex
                                         ? color.hexCode
