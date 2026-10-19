@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import getErrorMessage from "@/utils/getErrorMessage";
 import { toast } from "sonner";
 
 import {
@@ -49,7 +50,7 @@ export default function VerifyEmailView() {
     async function handleSubmit(e) {
         e.preventDefault();
         if (code.length !== 6) {
-            setError(t("codeInvalid"));
+            setError(t("errors.codeInvalid"));
             return;
         }
         try {

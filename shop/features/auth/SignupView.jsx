@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { Flower, User, Mail, Lock } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+import { Flower, User, Mail } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/features/auth/useAuth";
 import { useSignupMutation } from "@/lib/api/authApi";
 import Spinner from "@/components/loading/Spinner";
@@ -15,6 +15,7 @@ import FormField from "./components/FormField";
 import PasswordField from "./components/PasswordField";
 import AuthDivider from "./components/AuthDivider";
 import { EMAIL_REGEX, PASSWORD_REGEX, EMPTY_ERRORS } from "./constants";
+import getErrorMessage from "@/utils/getErrorMessage";
 
 const inputClass = (hasError) =>
     `block w-full rounded-xl border-0 outline-none py-4 px-12 text-slate-900 shadow-sm ring-1 ring-inset bg-white placeholder:text-slate-400 focus:ring-2 focus:ring-inset sm:text-sm ${
