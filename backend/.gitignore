@@ -36,5 +36,5 @@ build/
 ### VS Code ###
 .vscode/
 
-# upload_images/
+upload_images/
 .neon
